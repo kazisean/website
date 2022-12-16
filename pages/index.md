@@ -19,7 +19,7 @@ socials:
 
     
   - icon: i-system-uicons:paper-plane
-    link: https://blog.iamKazi.xyz
+    link: http://www.iinotes.org/
     name: wonderland
 ---
 
