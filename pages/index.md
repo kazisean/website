@@ -3,7 +3,7 @@ socials:
   - icon: i-academicons:cv
     link: /files/cv/Kazi Hossain- Resume latest NOV 2022.pdf
   - icon: "i-ion:mail-outline"
-    link: "mailto:keh8423@nyu.edu"
+    link: "mailto:kazisean@naver.com"
   - icon: i-eva:github-outline
     link: https://github.com/kazisean
   # - icon: i-radix-icons:linkedin-logo
