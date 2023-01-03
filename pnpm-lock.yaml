@@ -27,7 +27,7 @@ specifiers:
   markdown-it-table-of-contents: ^0.6.0
   nprogress: ^0.2.0
   pinia: ^2.0.23
-  pnpm: ^7.16.0
+  pnpm: ^7.22.0
   prettier: ^2.7.1
   shiki: ^0.11.1
   taze: ^0.8.3
@@ -76,7 +76,7 @@ devDependencies:
   markdown-it-link-attributes: 4.0.1
   markdown-it-shiki: 0.6.1
   markdown-it-table-of-contents: 0.6.0
-  pnpm: 7.16.0
+  pnpm: 7.22.0
   prettier: 2.7.1
   shiki: 0.11.1
   taze: 0.8.3
@@ -3441,8 +3441,8 @@ packages:
       pathe: 1.0.0
     dev: true
 
-  /pnpm/7.16.0:
-    resolution: {integrity: sha512-jGDe7kz6wmoJiiEn+zQBwV+h0PazsvkeXGS5RnM0bEAD2rTxMR+oOfhWfuEDXddiBocCDNuuo1PL4ChuvR0t/g==}
+  /pnpm/7.22.0:
+    resolution: {integrity: sha512-dkhne1O1ktNz/Cn/GZU5wnjhP/aNEfmJGW5UdILyDnptgw84jauOf2Mk5jTe3gp4OZWZN1szcBrjyOZ7Uxxilw==}
     engines: {node: '>=14.6'}
     hasBin: true
     dev: true
