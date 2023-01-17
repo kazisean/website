@@ -68,7 +68,7 @@ Check his [Curriculum Vitae](/files/cv/Kazi%20Hossain-%20Resume%20latest%20NOV%2
 
 ## SKILLS
 
-- Programming Languages: Python, Java, HTML and CSS
+- Programming Languages: Python, Java, JavaScript and C++
 - Tools & Frameworks: Vue.js, React, PyTorch, Nginx, Shopify, Wordpress, Linux, Windows Server, Kubernetes, LaTeX
 - Computer Software: AutoCAD, Figma, Notion, Google Suite, Microsoft Azure, Zoho Desk, Spreadsheets 
 - Language: Native fluency in Bengali, English and limited working proficiency in Hindi and Urdu
