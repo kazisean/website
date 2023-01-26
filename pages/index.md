@@ -14,7 +14,7 @@ socials:
     link: https://twitter.com/KaziSean_
 
   - icon: i-ri:game-line
-    link: https://portfolio.iamKazi.xyz
+    link: https://kazisean.github.io/ComingSoon/
     name: Portfolio
 
     
