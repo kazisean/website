@@ -60,7 +60,7 @@ Check his [Curriculum Vitae](/files/cv/Kazi%20Hossain-%20Resume%20latest%20NOV%2
 
 |   |   |
 |---|---|
-| **System Technician**, *[NYU Arts & Science](https://as.nyu.edu/)*, Manhattan | 2021 |
+| **System Technician**, *[NYU Arts & Science](https://as.nyu.edu/)*, Manhattan | Present |
 | **Consultant Intern**, *[NYC Outward Bound Schools](https://www.nycoutwardbound.org/)*, Brooklyn | 2021 |
 | **Volunteer Data Analyst**, *[The COVID-19 Data Project](https://covid19dataproject.org/)*, Remote | 2021 |
 | **Volunteer	 Researcher**, *[Mentoring In Medicine](https://medicalmentor.org/)*, Remote | 2020 |
