@@ -10,8 +10,8 @@ socials:
   #   link: https://www.linkedin.com/in/
   # - icon: i-academicons:google-scholar
   #   link: https://scholar.google.com/
-  - icon: i-ri:twitter-fill
-    link: https://twitter.com/KaziSean_
+  # - icon: i-ri:twitter-fill
+  #   link: https://twitter.com/KaziSean_
 
   - icon: i-ri:game-line
     link: https://kazisean.github.io/ComingSoon/
@@ -19,7 +19,7 @@ socials:
 
     
   - icon: i-system-uicons:paper-plane
-    link: http://www.iinotes.org/
+    link: https://kazisean.github.io/ComingSoon/
     name: wonderland
 ---
 
