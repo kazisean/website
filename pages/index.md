@@ -19,7 +19,7 @@ socials:
 
     
   - icon: i-system-uicons:paper-plane
-    link: https://kazisean.github.io/ComingSoon/
+    link: https://blog.iamkazi.xyz/
     name: wonderland
 ---
 
