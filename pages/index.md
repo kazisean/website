@@ -45,7 +45,7 @@ Check his [Curriculum Vitae](/files/cv/Kazi%20Hossain-%20Resume%20latest%20NOV%2
 
 |   |   |
 |---|---|
-| **B.A. in Individualized Study**, New York University | 2022-2026 |
+| **B.A. in Computer Science**, New York University | 2022-2026 |
 
 
 <!-- 
