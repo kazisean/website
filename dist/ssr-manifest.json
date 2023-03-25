@@ -257,67 +257,64 @@
     "/assets/italic.c0fd060e.woff",
     "/assets/bolditalic.28145ed6.woff"
   ],
-  "assets/app.6698bffc.js-unocss-hash.css": [
+  "assets/app.0e7a60b8.js-unocss-hash.css": [
     "/assets/regular.5b933bfd.woff",
     "/assets/bold.48de7558.woff",
     "/assets/italic.c0fd060e.woff",
     "/assets/bolditalic.28145ed6.woff"
   ],
   "src/layouts/about.vue": [
-    "/assets/about.b75dc1fe.js"
+    "/assets/about.90591a01.js"
   ],
   "src/layouts/post.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/post.2e200b0e.js",
+    "/assets/post.1d732b04.js",
     "/assets/post.f72dab20.css"
   ],
   "src/layouts/post.vue?vue&type=style&index=0&scoped=1936c276&lang.css": [
-    "/assets/post.2e200b0e.js",
+    "/assets/post.1d732b04.js",
     "/assets/post.f72dab20.css"
   ],
   "src/layouts/post.vue": [
-    "/assets/post.2e200b0e.js",
+    "/assets/post.1d732b04.js",
     "/assets/post.f72dab20.css"
   ],
   "\u0000/home/kazi/Documents/website/node_modules/.pnpm/dayjs@1.11.6/node_modules/dayjs/dayjs.min.js?commonjs-module": [
-    "/assets/index.addd0311.js"
+    "/assets/index.fcebe0f4.js"
   ],
   "node_modules/.pnpm/dayjs@1.11.6/node_modules/dayjs/dayjs.min.js": [
-    "/assets/index.addd0311.js"
+    "/assets/index.fcebe0f4.js"
   ],
   "src/utils/index.ts": [
-    "/assets/index.addd0311.js"
+    "/assets/index.fcebe0f4.js"
   ],
   "src/components/BlogList.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/index.b0fd4908.js"
+    "/assets/index.e4d25346.js"
   ],
   "pages/posts/index.md": [
-    "/assets/index.b0fd4908.js"
+    "/assets/index.e4d25346.js"
   ],
   "pages/posts/2022-06-28-new-mac.md": [
-    "/assets/2022-06-28-new-mac.3701c7f8.js"
-  ],
-  "pages/posts/2022-05-20-new-homepage.md": [
-    "/assets/2022-05-20-new-homepage.aa6d00fb.js"
+    "/assets/2022-06-28-new-mac.3f3a9c70.js"
   ],
   "src/components/icons/OhCV.vue": [
-    "/assets/projects.b5fd95ca.js"
+    "/assets/projects.cf219a1d.js"
   ],
   "src/components/icons/OhVueIcons.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/projects.b5fd95ca.js"
+    "/assets/projects.cf219a1d.js"
   ],
   "src/components/Project.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/projects.b5fd95ca.js"
+    "/assets/projects.cf219a1d.js"
   ],
   "src/components/ProjectList.vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/projects.b5fd95ca.js"
+    "/assets/projects.cf219a1d.js"
   ],
   "pages/projects.md": [
-    "/assets/projects.b5fd95ca.js"
+    "/assets/projects.cf219a1d.js"
   ],
   "pages/[...all].vue?vue&type=script&setup=true&lang.ts": [
-    "/assets/_...all_.2ff8a64b.js"
+    "/assets/_...all_.afab07df.js"
   ],
   "pages/[...all].vue": [
-    "/assets/_...all_.2ff8a64b.js"
+    "/assets/_...all_.afab07df.js"
   ]
 }
