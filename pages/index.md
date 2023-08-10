@@ -36,7 +36,7 @@ socials:
   </div>
 </div>
 
-Kazi is a [Computer Science](https://cs.nyu.edu/home/index.html) undergraduate student at [New York University](https://www.nyu.edu/). His current interest is in Machine Learning, User interface design, Data Analysis and Server Optimization. He is also interest in Language model generation, Deep learning, and Generative models.
+Kazi is a [Computer Science](https://cs.nyu.edu/home/index.html) undergraduate student at [New York University](https://www.nyu.edu/). His current interest is in Language model generation, Generative models, User interface design, Data Analysis and Server Optimization.
 
 Check his [Curriculum Vitae](/files/cv/Kazi%20Hossain-%20Resume%20latest%20NOV%202022.pdf) for more details.
 
