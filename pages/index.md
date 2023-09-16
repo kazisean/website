@@ -19,7 +19,7 @@ socials:
 
     
   - icon: i-system-uicons:paper-plane
-    link: https://hossain.cc/
+    link: https://blog.hossain.cc/
     name: wonderland
 ---
 
