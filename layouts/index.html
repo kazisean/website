@@ -1,0 +1,179 @@
+{{ define "main" }}
+  {{- with site.Params.homeInfoParams }}
+
+  <style>
+
+    /* Align the profile picture to the right */
+    .profile-pic {
+        position: absolute; /* Set to absolute position */
+        top: 40px; /* Adjust the top position as needed */
+        right: 10px; /* Adjust the right position as needed */
+        border-radius: 50%;
+        max-width: 25%;
+        height: auto;
+        margin-bottom: 10px;
+        z-index: 999; /* Set a high z-index to ensure it's on top */
+        transition: transform 0.6s ease;
+    }
+    
+    .highlight-b {
+      background-color: rgba(135, 206, 235, 0.5); /* Blue color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-p {
+      background-color: rgba(179, 128, 241, 0.4); /* Purple color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-r {
+      background-color: rgba(0, 153, 153, 0.4); /* Purple color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-leet {
+      background-color: rgba(255, 204, 0, 0.4); /* Purple color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-CTF {
+      background-color: rgba(255, 102, 102, 0.4); /* Purple color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-diy {
+      background-color: rgba(0, 204, 0, 0.4); /* Purple color with 70% opacity */
+      padding: 1px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+  .highlight-op {
+      background-color: rgba(0, 0, 0, 0.7); /* Purple color with 70% opacity */
+      color: aliceblue;
+      padding: 2px 7px;
+      border-radius: 10px; /* Rounded corners */
+      white-space: nowrap; /* Prevent line breaks */
+  }
+
+
+    @media (max-width: 761px) {
+      .profile-pic {
+        position: absolute; /* Set to absolute position */
+        top: 30px; /* Adjust the top position as needed */
+        right: 10px; /* Adjust the right position as needed */
+        border-radius: 50%;
+        max-width: 20%;
+        height: auto;
+        margin-bottom: 10px;
+        z-index: 999; /* Set a high z-index to ensure it's on top */
+      }
+    }
+
+    .home-info {
+      margin-top: 0; /* Adjust the value to your preference */
+   }
+
+    
+
+
+     /* Hide the profile picture on screens smaller than 502px */
+     @media (max-width: 502px) {
+      .profile-pic {
+        display: none;
+      }
+    }
+
+    /* Flip effect on hover */
+    .profile-pic:hover {
+        transform: rotateY(180deg); /* Adjust the rotation angle as needed */
+    }
+
+    /* Clear the float to prevent layout issues */
+    .text-content::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    .side-by-side-list {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.side-by-side-list li {
+    display: inline-block; /* Display list items horizontally */
+    margin-right: 10px; /* Adjust spacing between items as needed */
+}
+
+
+</style>
+
+    <article class="first-entry home-info">
+        <header class="entry-header">
+            <div class="header-content">
+                <div class="text-content">
+                    <img class="profile-pic" src="\metadata\Kazi.png" alt="Picture of Kazi Hossain wearing a suit and tie">
+                    <h4>Hello, this is</h4>
+                    <h1>{{ .Title | markdownify }}</h1>
+                </div>
+            </div>
+        </header>
+      
+        <div class="entry-content">
+            {{ .Content | markdownify }}
+        </div>
+        
+        <footer class="entry-footer">
+            {{ partial "social_icons.html" (dict "socialIcons" site.Params.socialIcons "align" .Align) }}
+          </footer>
+
+
+    </article>
+
+    <div class="home-info">
+
+          <!-- other home page  stuff -->
+          <p>I’m a junior at <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF">New York University</a> studying CS and other things. 
+            Currently, working on building tools that I would like to use and can see being helpful for others…
+            trying to build <a href="/future/" class="highlight-b">the future.</a></p>
+
+
+        </br>
+
+          <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
+
+        </br>
+
+      <div class = "last-section">
+
+        I like to post about: <br>
+
+          <br>
+          <ul class="side-by-side-list">
+            <li><a href="/diy/" class="highlight-diy">DIY Projects</a></li>
+            <li><a href="/opt/" class="highlight-b">Optimizations</a></li>
+            <li><a href="/ctf/" class="highlight-CTF">CTF write-ups</a></li>
+            <li><a href="/leetcode/" class="highlight-leet">Leetcode editorial</a></li>
+            <li><a href="/lifestyle/" class="highlight-r">Lifestyle</a></li>
+        </ul>
+        
+      </div>
+      
+
+            
+    </div>
+
+  {{ end }}
+{{ end }}
