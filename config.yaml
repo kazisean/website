@@ -33,6 +33,8 @@ params:
   description: "Explore Kazi Hossain's journey through computer science at NYU, in his personal website featuring DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other tech musings."
   author: Kazi Hossain
   # author: ["Me", "You"] # multiple authors
+  keywords: [Kazi Hossain, kazi hossain personal website, Kazi Hossain Blog, Kazi Hossain NYU, Kazi Hossain Projects, personal website]
+
 
   defaultTheme: auto
   # disableThemeToggle: true

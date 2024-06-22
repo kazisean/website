@@ -1,1 +1,2 @@
+hugo
 hugo server --navigateToChanged
