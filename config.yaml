@@ -85,7 +85,7 @@ params:
       url: "https://x.com/KaziSean_"
     - name: RSS
       title: RSS feed
-      url: "/sitemap.xml"
+      url: "/index.xml"
 
   editPost:
     URL: ""
