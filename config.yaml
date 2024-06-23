@@ -124,6 +124,45 @@ params:
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
 
+menu:
+  main:
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 10
+    - identifier: archive
+      name: All Post
+      url: /posts/
+      weight: 20
+    # - identifier: topics
+    #   name: Topics
+    #   url: /tags/
+    #   weight: 30
+    - identifier: notes
+      name: Notes
+      url: /notes/
+      weight: 40
+    - identifier: Projects
+      name: Projects
+      url: /projects/
+      weight: 50
+    - identifier: about
+      name: About
+      url: /
+      weight: 80
+    - identifier: misc
+      name: Misc
+      url: /misc/
+      weight: 60
+    - identifier: links
+      name: Links
+      url: /links/
+      weight: 70
+    # - identifier: resume
+    #   name: Resume
+    #   url: 
+    #   weight: 80
+
 markup:
   goldmark:
     renderer:
