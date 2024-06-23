@@ -54,7 +54,7 @@ params:
 
   profileMode:
     enabled: false
-    title: Kazi Hossain.
+    title: Kazi Hossain
     subtitle: "Machine Learning, Reverse Engineering and Foss enthusiast."
     imageUrl: "images/main/Kazi.png"
     imageTitle: Picture of Kazi Hossain wearing a suit and tie
