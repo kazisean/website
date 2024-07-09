@@ -53,7 +53,8 @@ This page contains my bookmarks. Thanks to twitter anons. Categorized by topics 
 
 ### Other
 • [Intuition and Insight: Two Processes That Build on Each Other or Fundamentally Differ?](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2016.01395/full) \
-• [Mental Imagery](https://plato.stanford.edu/entries/mental-imagery/) 
+• [Mental Imagery](https://plato.stanford.edu/entries/mental-imagery/) \
+• [Vim Guide](http://www.vimgenius.com/lessons/vim-intro)
 
 
 
