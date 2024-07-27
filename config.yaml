@@ -140,8 +140,10 @@ menu:
     #   weight: 30
     - identifier: notes
       name: Notes
-      url: /notes/
+      url: https://kazinotes.notion.site/Notes-0f4dc8614e974bbda8f90517af837781
       weight: 40
+      params:
+        target: _blank
     - identifier: Projects
       name: Projects
       url: /projects/
