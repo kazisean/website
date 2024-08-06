@@ -31,14 +31,14 @@ This page contains my bookmarks. Thanks to twitter anons. Categorized by topics 
 ## Mathematics
 • [Developing Your Intuition For Math](https://betterexplained.com/articles/developing-your-intuition-for-math/)\
 • [Understanding the intuition behind math](https://betterexplained.com/articles/developing-your-intuition-for-math/) \
+• [Paul's Calculus notes](https://tutorial.math.lamar.edu/classes/calci/calci.aspx) \
+• [Calculus video guides](https://www.youtube.com/watch?v=GiCojsAWRj0&list=PL0o_zxa4K1BWYThyV4T2Allw6zY0jEumv) \
 • [Essence of linear algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
 
 
 ### Data structure & Algorithms 
 • [Data Structure With Abdul Bari](https://youtu.be/0IAPZzGSbME?list=PLAXnLdrLnQpRcveZTtD644gM9uzYqJCwr) \
 • [NeetCode](https://neetcode.io/practice) \
-• [Paul's Calculus notes](https://tutorial.math.lamar.edu/classes/calci/calci.aspx) \
-• [Calculus video guides](https://www.youtube.com/watch?v=GiCojsAWRj0&list=PL0o_zxa4K1BWYThyV4T2Allw6zY0jEumv) \
 • [Codeforces Roadmap Resources](https://docs.google.com/document/d/1-7Co93b504uyXyMjjE8bnLJP3d3QXvp_m1UjvbvdR2Y/edit)
 
 
