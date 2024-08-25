@@ -14,7 +14,7 @@ searchHidden: true
 ---
 ![Kazi Hossain fastfetch showcase](/img/stat.png)
 
-My homelab + workstation is very simple and relies on hassle free maintenance. 
+My homelab + workstation accessible from anywhere with hassle free maintenance. 
 
 ### Specs
 
@@ -25,7 +25,7 @@ My homelab + workstation is very simple and relies on hassle free maintenance.
 | **RAM**         | TEAMGROUP T-Force Delta RGB DDR4 16GB      |
 | **Board**       | MSI B550                                   |
 | **Cooler**      | Cooler Master rgb cpu cooler               |
-| **SSD**         | Some nvme 500GB, Some ssd  500 GB         |
+| **SSD**         | Some nvme 500GB, Some ssd  500 GB          |
 | **HDD**         | Western Digital 4TB WD Blue                |
 | **Case**        | LIAN LI Case                               |
 
