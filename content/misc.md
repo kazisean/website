@@ -12,7 +12,7 @@ hideMeta: true
 searchHidden: true
 ---
 
-![Anime boy wearing a space suit looking over at a futuristic city](/pages//Anime%20nanotechnology%20boy.jpg)
+![Anime boy wearing a space suit looking over at a futuristic city](/pages/Anime%20nanotechnology%20boy.jpg)
 
 
 • 🔭 Current Project: A privacy focused lightweight browser [Clara](#) \

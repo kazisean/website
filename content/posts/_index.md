@@ -1,6 +1,5 @@
 +++
 title = 'Posts'
-description = 'Collection of my blog posts'
+description = 'Collection of my blog posts ʕ•ᴥ•ʔ'
 +++
 
-Coming Soon!!

@@ -3,4 +3,4 @@ title = 'DIY'
 description = 'Collection of my diy projects'
 +++
 
-Coming Soon!!
+[Mini Homelab](https://hossain.cc/posts/homelab/)
