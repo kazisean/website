@@ -14,7 +14,7 @@ searchHidden: true
 ---
 ![Kazi Hossain fastfetch showcase](/img/stat.png)
 
-My homelab + workstation accessible from anywhere with hassle free maintenance. 
+My simple homelab + workstation accessible from anywhere with hassle free maintenance. 
 
 ### Specs
 
