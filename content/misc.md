@@ -15,7 +15,7 @@ searchHidden: true
 ![Anime boy wearing a space suit looking over at a futuristic city](/pages/Anime%20nanotechnology%20boy.jpg)
 
 
-• 🔭 Current Project: A privacy focused lightweight browser [Jab](#) \
+• 🔭 Current Project: A privacy focused lightweight browser [Jab: Just a browser](#) \
 • 🖥 System: [Arch Linux](#) \
 • 🪐 IDE: Learning to use [Vim](#)
 
