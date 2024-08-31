@@ -22,7 +22,7 @@ My simple homelab + workstation accessible from anywhere with hassle free mainte
 |-----------------|--------------------------------------------|
 | **CPU**         | Ryzen 5 5600X                              |
 | **GPU**         | Radeon™ RX 6700 XT                         |
-| **RAM**         | TEAMGROUP T-Force Delta RGB DDR4 16GB      |
+| **RAM**         | TEAMGROUP T-Force  DDR4 16GB               |
 | **Board**       | MSI B550                                   |
 | **Cooler**      | Cooler Master rgb cpu cooler               |
 | **SSD**         | Some nvme 500GB, Some ssd  500 GB          |
