@@ -33,7 +33,6 @@ params:
   description: "Journey through a maze of Kazi Hossain’s musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
   author: Kazi Hossain
   # author: ["Me", "You"] # multiple authors
-  keywords: [Kazi Hossain, kazi hossain personal website, kazi hossain website, Kazi Hossain Blog, Kazi Hossain NYU, Kazi Hossain Projects, personal website, NYU student projects, technology enthusiast, Leetcode editorials, Kazi Leetcode editorials, Kazi CTF editorials, kazi optimizations, DIY projects by Kazi Hossain, Kazi hossain computer science]
 
 
   defaultTheme: auto
