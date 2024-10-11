@@ -21,7 +21,7 @@ searchHidden: true
 
 • `Built with` : [Hugo](https://gohugo.io/) \
 • `Theme` : [PaperMod](https://github.com/adityatelange/hugo-PaperMod) (with custom mod) \
-• `Hosting` : [Cloudflare](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/)
+• `Hosting` : [GitHub Pages](https://docs.github.com/en/pages)
 
 ---
 
