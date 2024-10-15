@@ -135,9 +135,7 @@
             </div>
         </header>
       
-        <div class="entry-content" id="entry-content">
-                <!-- Content will be filled by JavaScript -->
-        </div>
+        <div class="entry-content" id="entry-content"></div>
         
         <footer class="entry-footer">
             {{ partial "social_icons.html" (dict "socialIcons" site.Params.socialIcons "align" .Align) }}
@@ -179,23 +177,39 @@
             
     </div>
     <script>
-      // Define your list of random strings
+      // random strings as entry-content
       const randomStrings = [
-          "Refresh to know more.",
           "Machine Learning, Reverse Engineering and Foss enthusiast.",
           "SWE, DevOps Engineer, Chaos Coordinator."
-
       ];
   
-      // Function to select a random string
-      function getRandomString() {
-          const randomIndex = Math.floor(Math.random() * randomStrings.length);
-          return randomStrings[randomIndex];
+      let currentStringIndex = 0; // Track the current string
+      let currentCharIndex = 0; // Track the current character being typed
+      const typingSpeed = 40; // Speed of typing in milliseconds
+      const pauseDuration = 6000; // Pause duration after typing
+      const entryContent = document.getElementById('entry-content');
+  
+      function typeString(string) {
+          if (currentCharIndex < string.length) {
+              entryContent.innerHTML += string.charAt(currentCharIndex);
+              currentCharIndex++;
+              setTimeout(() => typeString(string), typingSpeed);
+          } else {
+              // Pause for a moment, then start the next string
+              setTimeout(() => {
+                  currentCharIndex = 0; // Reset character index
+                  entryContent.innerHTML = ""; // Clear content
+                  currentStringIndex = (currentStringIndex + 1) % randomStrings.length; // Move to the next string
+                  typeString(randomStrings[currentStringIndex]); // Type the next string
+              }, pauseDuration);
+          }
       }
   
-      // Set the random string to the entry content
-      document.getElementById('entry-content').innerHTML = getRandomString();
+      // type the first string
+      typeString(randomStrings[currentStringIndex]);
   </script>
+  
+  
   
 
   {{ end }}
