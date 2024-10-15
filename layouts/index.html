@@ -135,8 +135,8 @@
             </div>
         </header>
       
-        <div class="entry-content">
-            {{ .Content | markdownify }}
+        <div class="entry-content" id="entry-content">
+                <!-- Content will be filled by JavaScript -->
         </div>
         
         <footer class="entry-footer">
@@ -178,6 +178,25 @@
 
             
     </div>
+    <script>
+      // Define your list of random strings
+      const randomStrings = [
+          "Refresh to know more.",
+          "Machine Learning, Reverse Engineering and Foss enthusiast.",
+          "DevOps Engineer, Chaos Coordinator."
+
+      ];
+  
+      // Function to select a random string
+      function getRandomString() {
+          const randomIndex = Math.floor(Math.random() * randomStrings.length);
+          return randomStrings[randomIndex];
+      }
+  
+      // Set the random string to the entry content
+      document.getElementById('entry-content').innerHTML = getRandomString();
+  </script>
+  
 
   {{ end }}
 {{ end }}
