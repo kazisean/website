@@ -104,6 +104,7 @@ params:
 
   assets:
     disableHLJS: true
+    disableFingerprinting: true
     favicon: "https://raw.githubusercontent.com/kazisean/website/main/assets/images/main/fav/favicon.ico"
     favicon16x16: "https://raw.githubusercontent.com/kazisean/website/main/assets/images/main/fav/favicon-16x16.png"
     favicon32x32: "https://raw.githubusercontent.com/kazisean/website/main/assets/images/main/fav/favicon-32x32.png"
