@@ -131,7 +131,7 @@ menu:
       url: /search/
       weight: 10
     - identifier: archive
-      name: All Post
+      name: Blog
       url: /posts/
       weight: 20
     # - identifier: topics
