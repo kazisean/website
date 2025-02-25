@@ -17,7 +17,7 @@ searchHidden: true
 
 ❖ **Open Education**: Access to education and learning resources should be open and accessible for anyone to use, modify, and share-alike; this includes textbooks, lecture notes, videos, and other learning materials all in one place. [Working on this].
 
-❖ **Scattered Resources**: ~~There is a lot of valuable information on the web, but everything is scattered. Search engines should provide answers to questions within seconds so that I don't have to click 12 links, parsing through introductions to get what I am looking for. How can we solve the problem of scattered resources?~~ [Perplexity](https://www.perplexity.ai/)
+❖ **Scattered Resources**: ~~There is a lot of valuable information on the web, but everything is scattered. Search engines should provide answers to questions within seconds so that I don't have to click 12 links, parsing through introductions to get what I am looking for. How can we solve the problem of scattered resources?~~ [Perplexity](https://www.perplexity.ai/){target="_blank"}
 
 ❖ **Unbiased Reviews**: While shopping online, there is a hesitancy to read product reviews as to which one to trust. GPT that can condense the scattered reviews from different websites and give a simple 2 to 3 sentences of review. 
 
