@@ -3,7 +3,8 @@
 baseURL: "https://hossain.cc/"
 title: Kazi Hossain
 copyright: ""
-paginate: 5
+pagination:
+  pagerSize: 5
 theme: ["PaperMod"]
 
 # googleAnalytics: G-XXXXXXX
@@ -20,6 +21,7 @@ mainsections: ["posts", "papermod"]
 minify:
   disableXML: false
   minifyOutput: true
+
 
 
 outputs:
@@ -198,5 +200,5 @@ markup:
 services:
   instagram:
     disableInlineCSS: true
-  twitter:
+  x:
     disableInlineCSS: true
