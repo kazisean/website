@@ -23,8 +23,8 @@ searchHidden: true
 
 ❖ **Web**: Fast, Secure, and built in ad + tracker blocking browser is crucial. Away from crypto and data hoggers. [Working on this].
 
-❖ **Faster Emails**: Reading and responding to emails takes a long time. An open-source extension that provides pre-filled email responses. Think gmail reply suggestion but more professional and customizable. 
+❖ **Faster Emails**: Reading and responding to emails takes a long time. An open-source extension that provides pre-filled email responses. Think gmail reply suggestion but more professional and customizable.
 
-
+❖ **Automate Healthcare**: A huge share of day-to-day clinical work is still manual. From basic management to lab result interpretation which can be automated with AI?
 
 To be continued...
