@@ -33,4 +33,4 @@ A growing list of questions I’m eager to unpack, but haven’t had the headspa
 ¤ Is it possible to eliminate federal income tax for households earning under sub $100k per year, once revenue loss and macroeconomic feedback loops are modeled? 
 
 ## Politics
-¤ Is democracy the only viable solution? If so, how could we identify the best candidates using an algorithm that evaluates domain expertise, knowledge, agility, mindset, and other factors?
+¤ How could we identify the best possible candidate to run for president using an algorithm that evaluates domain expertise, knowledge, agility, mindset, and other factors?
