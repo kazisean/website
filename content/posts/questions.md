@@ -15,7 +15,7 @@ searchHidden: true
 
 ![man in a spacesuit](/img/space.webp)
 
-A growing list of questions I’m eager to unpack, but haven’t had the headspace to tackle yet. If you can break down and explain any of them to me — bonus points for any great pointers of links, research papers, or real-world anecdotes — the next coffee (or bubble tea) is on me! [Email](mailto:kazi.h@nyu.edu)
+A growing list of questions I’m eager to unpack, but haven’t had the headspace to tackle yet. If you can break down and explain any of them to me (bonus points for any great pointers of links, research papers, or real-world anecdotes) the next coffee (or bubble tea) is on me! [Email](mailto:kazi.h@nyu.edu)
 
 
 ## Startups  
