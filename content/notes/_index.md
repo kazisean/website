@@ -1,5 +1,6 @@
 +++
 title = 'Notes'
+draft = true
 ShowToc = true
 TocOpen = true
 +++
