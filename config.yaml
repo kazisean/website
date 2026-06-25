@@ -31,7 +31,7 @@ params:
   # author: ["Me", "You"] # multiple authors
 
 
-  defaultTheme: auto
+  defaultTheme: dark
   # disableThemeToggle: true
   ShowShareButtons: true
   ShowReadingTime: true
