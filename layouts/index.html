@@ -12,7 +12,6 @@
         position: absolute; /* Set to absolute position */
         top: 40px; /* Adjust the top position as needed */
         right: 10px; /* Adjust the right position as needed */
-        border-radius: 50%;
         max-width: 25%;
         height: auto;
         margin-bottom: 10px;
@@ -76,7 +75,6 @@
         position: absolute; /* Set to absolute position */
         top: 30px; /* Adjust the top position as needed */
         right: 10px; /* Adjust the right position as needed */
-        border-radius: 50%;
         max-width: 20%;
         height: auto;
         margin-bottom: 10px;
@@ -84,11 +82,16 @@
       }
     }
 
-    .home-info {
-      margin-top: 0; /* Adjust the value to your preference */
-   }
+     .home-info {
+       margin-top: 0; /* Adjust the value to your preference */
+    }
 
-    
+    /* Push the homepage main content to the left instead of centered */
+    .main:has(.home-info) {
+        margin-left: var(--gap);
+        margin-right: auto;
+    }
+
 
 
      /* Hide the profile picture on screens smaller than 502px */
@@ -121,6 +124,75 @@
     margin-right: 10px; /* Adjust spacing between items as needed */
 }
 
+    /* Vertical "moving logos" carousel: a continuous strip of images
+       scrolling upward, flush to the right edge of the browser window.
+       Home-only (this layout is only used on the home page) and hidden on
+       narrow screens where it would overlap the content column. */
+    .home-carousel {
+        position: fixed;              /* anchored to the viewport, not the content column */
+        top: 0;
+        bottom: 70px;                 /* leave room for the footer links on the right */
+        right: 0;                      /* flush to the browser's right edge */
+        width: 200px;
+        overflow: hidden;             /* clips the scrolling track; enables the fade masks */
+        z-index: 1;                   /* stays below the header (z-index: 50) */
+    }
+
+    /* Top/bottom shadow fades so images softly appear/disappear at the very
+       top and very bottom edges of the viewport. */
+    .home-carousel::before,
+    .home-carousel::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 80px;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .home-carousel::before {
+        top: 0;
+        background: linear-gradient(to bottom, var(--code-bg), transparent);
+    }
+    .home-carousel::after {
+        bottom: 0;
+        background: linear-gradient(to top, var(--code-bg), transparent);
+    }
+    /* On the list/home body, dark mode uses --theme instead of --code-bg. */
+    .dark .home-carousel::before { background: linear-gradient(to bottom, var(--theme), transparent); }
+    .dark .home-carousel::after  { background: linear-gradient(to top, var(--theme), transparent); }
+
+    /* The scrolling column. The image set is rendered twice, so moving the
+       track up by exactly 50% lands on an identical frame = seamless loop. */
+    .home-carousel__track {
+        display: flex;
+        flex-direction: column;
+        animation: home-scroll 300s linear infinite;
+    }
+    @keyframes home-scroll {
+        to { transform: translateY(-50%); }
+    }
+
+    .home-carousel__track figure {
+        flex-shrink: 0;
+        margin: 0;
+        margin-bottom: 16px;            /* gap between each picture */
+    }
+    .home-carousel__track img {
+        width: 100%;
+        display: block;
+    }
+
+    /* Pause the motion for users who prefer reduced motion. */
+    @media (prefers-reduced-motion: reduce) {
+        .home-carousel__track { animation: none; }
+    }
+
+    /* Hide when the right margin can't comfortably fit the strip without
+       covering the content column. */
+    @media (max-width: 1200px) {
+        .home-carousel { display: none; }
+    }
 
 </style>
 
@@ -129,7 +201,6 @@
             <div class="header-content">
                 <div class="text-content">
                     <img class="profile-pic" src="\metadata\Kazi.png" alt="Picture of Kazi Hossain wearing a suit and tie">
-                    <h4>Hello, this is</h4>
                     <h1>{{ .Title | markdownify }}</h1>
                 </div>
             </div>
@@ -143,6 +214,32 @@
 
 
     </article>
+
+    {{- /* Right-side auto-scrolling image carousel (home page only). */ -}}
+    {{- $imgs := resources.Match "images/homepage_moving/*" -}}
+    <aside class="home-carousel" aria-hidden="true">
+      <div class="home-carousel__track">
+        {{- range $imgs }}<figure><img src="{{ .RelPermalink }}" loading="lazy" alt=""></figure>{{ end -}}
+      </div>
+    </aside>
+
+    <script>
+    (function () {
+      var track = document.querySelector('.home-carousel__track');
+      if (!track) return;
+      var figures = track.querySelectorAll('figure');
+      var arr = Array.from(figures);
+      /* Fisher‑Yates shuffle: random order every page visit. */
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      track.innerHTML = '';
+      arr.forEach(function (f) { track.appendChild(f); });
+      /* Duplicate the shuffled set so translateY(-50 %) loops seamlessly. */
+      arr.forEach(function (f) { track.appendChild(f.cloneNode(true)); });
+    })();
+    </script>
 
     <div class="home-info">
 
