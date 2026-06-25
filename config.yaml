@@ -24,12 +24,6 @@ minify:
 
 
 
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
-
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   description: "Journey through a maze of Kazi Hossain’s musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
@@ -117,21 +111,8 @@ params:
   #     hiddenInList: true # hide on list pages and home
   #     hiddenInSingle: true # hide on single page
 
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-
 menu:
   main:
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 10
     - identifier: archive
       name: Blog
       url: /posts/

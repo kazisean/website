@@ -8,7 +8,7 @@ ShowRssButtonInSectionTermList: false
 disableShare: true
 ShowBreadCrumbs: false
 hideMeta: true
-searchHidden: true
+
 ---
 
 [iiDeploy](https://iideploy.com/) - Automate Windows Deployment!

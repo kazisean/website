@@ -10,7 +10,6 @@ ShowRssButtonInSectionTermList: true
 disableShare: false
 ShowBreadCrumbs: true
 hideMeta: false
-searchHidden: true
 ---
 ![Kazi Hossain fastfetch showcase](/img/stat.png)
 
