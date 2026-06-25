@@ -35,6 +35,10 @@ Start the dev server:
 ```
 hugo server --navigateToChanged
 ```
+Override the baseURL when running the dev server:
+```
+hugo server --baseURL http://localhost:1313/ --navigateToChanged
+```
 
 Build for production:
 

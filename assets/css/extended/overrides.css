@@ -1,0 +1,167 @@
+/* Sticky header: stays pinned to the top while scrolling.
+   Transparent so only the pill has background color. */
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: transparent;
+    padding-block: 8px;
+}
+
+/* The nav is one floating pill: rounded corners, subtle shadow, and
+   content-width so it hugs the left edge instead of spanning full width. */
+.nav {
+    max-width: none;
+    margin-inline: var(--gap);
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    width: max-content;
+    max-width: calc(100% - var(--gap) * 2);
+    padding: 4px 8px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06);
+    background: var(--theme);
+    line-height: normal;
+    position: relative;
+}
+
+/* Hamburger menu button: hidden on desktop, shown on mobile. */
+#nav-toggle {
+    display: none;
+    cursor: pointer;
+    color: var(--secondary);
+    padding: 6px;
+    border-radius: 6px;
+    line-height: 1;
+}
+
+#nav-toggle:hover {
+    color: var(--primary);
+    background: var(--tertiary);
+}
+
+/* Show bars icon by default, X icon when menu is open. */
+.header.nav-open #nav-toggle #nav-open-icon {
+    display: none;
+}
+
+.header:not(.nav-open) #nav-toggle #nav-close-icon {
+    display: none;
+}
+
+/* Logo and menu sit together; drop the large side margins from the theme. */
+.logo,
+#menu {
+    margin: 0;
+}
+
+.logo {
+    flex-wrap: nowrap;
+}
+
+/* Make the "Kazi" home link a peer of the menu items (same size, bold brand). */
+.logo a {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* Each clickable nav item is a rounded chip. */
+.logo a,
+#menu a span {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: var(--secondary);
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+/* Hover: light grey background, theme-aware via --tertiary. */
+.logo a:hover,
+#menu a:hover span {
+    background: var(--tertiary);
+    color: var(--primary);
+}
+
+/* Active page: inverted (dark bg / light text in light mode, vice-versa in dark).
+   Also drops the theme's underline on #menu .active. */
+.logo a.active,
+#menu .active {
+    background: var(--primary);
+    color: var(--theme);
+    border-bottom: 0;
+}
+
+#menu .active {
+    font-weight: 500;
+}
+
+/* Tighten spacing between menu items so the pill stays compact. */
+#menu li + li {
+    margin-inline-start: 8px;
+}
+
+/* Allow the menu to scroll horizontally inside the capped pill on narrow screens. */
+#menu {
+    min-width: 0;
+}
+
+/* On narrow screens: hamburger menu replaces the inline pill items. */
+@media (max-width: 640px) {
+    .nav {
+        gap: 2px;
+        padding: 4px;
+        width: calc(100% - var(--gap) * 2);
+        justify-content: space-between;
+    }
+
+    #nav-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-inline-start: auto;
+    }
+
+    #menu {
+        display: none;
+        min-width: 0;
+        overflow-x: visible;
+        white-space: normal;
+    }
+
+    .header.nav-open #menu {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--theme);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06);
+        padding: 6px;
+        gap: 2px;
+        z-index: 60;
+    }
+
+    .header.nav-open #menu li {
+        width: 100%;
+    }
+
+    .header.nav-open #menu li + li {
+        margin-inline-start: 0;
+    }
+
+    .header.nav-open #menu a span {
+        display: block;
+        text-align: left;
+    }
+
+    .logo a,
+    #menu a span {
+        padding: 6px 8px;
+    }
+}

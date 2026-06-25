@@ -44,7 +44,7 @@
         <div class="logo">
             {{- $label_text := "Kazi" }}
             {{- if site.Title }}
-            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)">
+            <a href="{{ "" | absLangURL }}" accesskey="h" title="{{ $label_text }} (Alt + H)"{{- if $.IsHome }} class="active"{{- end }}>
                 {{- if site.Params.label.icon }}
                 {{- $img := resources.Get site.Params.label.icon }}
                 {{- if $img }}
@@ -73,29 +73,6 @@
             </a>
             {{- end }}
             <div class="logo-switches">
-                {{- if (not site.Params.disableThemeToggle) }}
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-                {{- end }}
-
                 {{- $lang := .Lang}}
                 {{- $separator := or $label_text (not site.Params.disableThemeToggle)}}
                 {{- with site.Home.Translations }}
@@ -120,15 +97,18 @@
             </div>
         </div>
         {{- $currentPage := . }}
+        {{- $page_url := $currentPage.Permalink | absLangURL }}
         <ul id="menu">
             {{- range site.Menus.main }}
             {{- $menu_item_url := (cond (strings.HasSuffix .URL "/") .URL (printf "%s/" .URL) ) | absLangURL }}
-            {{- $page_url := $currentPage.Permalink | absLangURL }}
+            {{- $is_exact_match := eq $menu_item_url $page_url }}
+            {{- $is_descendant_match := and (ne .URL "/") (ne .URL "") (strings.HasPrefix $page_url $menu_item_url) }}
+            {{- $is_active := or $is_exact_match $is_descendant_match }}
             <li>
                 <a href="{{ .URL | absLangURL }}"
                    title="{{ .Title | default .Name }}"
                    {{- with .Params.target }} target="{{ . }}"{{ end }}>
-                    <span {{- if eq $menu_item_url $page_url }} class="active" {{- end }}>
+                    <span {{- if $is_active }} class="active" {{- end }}>
                         {{- .Pre }}
                         {{- .Name -}}
                         {{ .Post -}}
@@ -145,6 +125,84 @@
             </li>
             {{- end }}
         </ul>
-        
+        <button id="nav-toggle" accesskey="m" title="Menu (Alt + M)" aria-label="Toggle menu" aria-controls="menu" aria-expanded="false">
+            <svg id="nav-open-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="3" y1="6" x2="21" y2="6"></line>
+                <line x1="3" y1="12" x2="21" y2="12"></line>
+                <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+            <svg id="nav-close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+        </button>
+        {{- if (not site.Params.disableThemeToggle) }}
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+        </button>
+        {{- end }}
+        <script>
+            (function () {
+                var toggle = document.getElementById('nav-toggle');
+                var menu = document.getElementById('menu');
+                var header = document.querySelector('.header');
+                if (!toggle || !menu || !header) return;
+
+                function isOpen() {
+                    return header.classList.contains('nav-open');
+                }
+
+                function openMenu() {
+                    header.classList.add('nav-open');
+                    toggle.setAttribute('aria-expanded', 'true');
+                }
+
+                function closeMenu() {
+                    header.classList.remove('nav-open');
+                    toggle.setAttribute('aria-expanded', 'false');
+                }
+
+                toggle.addEventListener('click', function () {
+                    isOpen() ? closeMenu() : openMenu();
+                });
+
+                menu.addEventListener('click', function (e) {
+                    if (e.target.closest('a')) closeMenu();
+                });
+
+                document.addEventListener('click', function (e) {
+                    if (isOpen() && !e.target.closest('.nav')) closeMenu();
+                });
+
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape') closeMenu();
+                });
+
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth > 640) closeMenu();
+                });
+            })();
+        </script>
     </nav>
 </header>
