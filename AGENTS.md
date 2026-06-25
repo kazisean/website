@@ -6,8 +6,9 @@
 This project is a personal portfolio website of Kazi Hossain built with Astro v11.16.0.
 
 ## Architecture
-- Astro v11.16.0
-- Hand-written CSS (Bear Blog theme)
+- Astro v7.0.2
+- Tailwind CSS v4 (via `@tailwindcss/vite` Vite plugin)
+- Hand-written CSS (Bear Blog theme) alongside Tailwind utilities
 
 ## Key Files
 | File | Lines | Purpose |
