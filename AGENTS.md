@@ -7,12 +7,25 @@ This project is a personal portfolio website of Kazi Hossain built with Astro v1
 
 ## Architecture
 - Astro v11.16.0
-- TailwindCSS
+- Hand-written CSS (Bear Blog theme)
 
 ## Key Files
 | File | Lines | Purpose |
 |------|-------|---------|
-| `main.go` | ~50 |  |
+| `src/pages/index.astro` | ~49 | Homepage |
+| `src/pages/blog/index.astro` | ~114 | Blog listing page |
+| `src/pages/blog/[...slug].astro` | ~20 | Dynamic blog post route |
+| `src/pages/blog/about.astro` | ~63 | About page |
+| `src/layouts/BlogPost.astro` | ~86 | Blog post layout shell |
+| `src/components/BaseHead.astro` | ~57 | SEO meta tags and font loading |
+| `src/components/Header.astro` | ~85 | Site header and navigation |
+| `src/components/Footer.astro` | ~62 | Site footer |
+| `src/components/HeaderLink.astro` | ~24 | Active-aware navigation link |
+| `src/components/FormattedDate.astro` | ~17 | Date formatting component |
+| `src/styles/global.css` | ~141 | Global styles |
+| `src/content.config.ts` | ~20 | Blog content collection definition |
+| `src/consts.ts` | ~5 | Site title and description constants |
+| `astro.config.mjs` | ~35 | Astro build configuration |
 
 
 ## Build And Run
