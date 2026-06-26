@@ -7,57 +7,45 @@
 
   <style>
 
-    /* Align the profile picture to the right */
-    .profile-pic {
-        position: absolute; /* Set to absolute position */
-        top: 40px; /* Adjust the top position as needed */
-        right: 10px; /* Adjust the right position as needed */
-        max-width: 25%;
-        height: auto;
-        margin-bottom: 10px;
-        z-index: 999; /* Set a high z-index to ensure it's on top */
-        transition: transform 0.6s ease;
-    }
-    
     .highlight-b {
       background-color: rgba(135, 206, 235, 0.5); /* Blue color with 70% opacity */
       padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-p {
       background-color: rgba(179, 128, 241, 0.4); /* Purple color with 70% opacity */
       padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-r {
       background-color: rgba(0, 153, 153, 0.4); /* Purple color with 70% opacity */
       padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-leet {
       background-color: rgba(255, 204, 0, 0.4); /* Purple color with 70% opacity */
       padding: 2px 8px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-CTF {
       background-color: rgba(255, 102, 102, 0.4); /* Purple color with 70% opacity */
       padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-diy {
       background-color: rgba(0, 204, 0, 0.4); /* Purple color with 70% opacity */
       padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
@@ -65,52 +53,62 @@
       background-color: rgba(0, 0, 0, 0.7); /* Purple color with 70% opacity */
       color: aliceblue;
       padding: 2px 7px;
-      border-radius: 10px; /* Rounded corners */
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
-
-    @media (max-width: 761px) {
-      .profile-pic {
-        position: absolute; /* Set to absolute position */
-        top: 30px; /* Adjust the top position as needed */
-        right: 10px; /* Adjust the right position as needed */
-        max-width: 20%;
-        height: auto;
-        margin-bottom: 10px;
-        z-index: 999; /* Set a high z-index to ensure it's on top */
-      }
+    /* Hero: name + profile picture component */
+    .first-entry.home-info {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0;
     }
 
-     .home-info {
-       margin-top: 0; /* Adjust the value to your preference */
+    .hero {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: clamp(1rem, 3vw, 2.5rem);
     }
 
-    /* Push the homepage main content to the left instead of centered */
-    .main:has(.home-info) {
-        margin-left: var(--gap);
-        margin-right: auto;
+    .hero-text h1 {
+        font-size: clamp(2rem, 6vw, 4rem);
+        font-weight: normal;
+        color: var(--primary);
+        line-height: 1.1;
+        margin: 0;
     }
 
-
-
-     /* Hide the profile picture on screens smaller than 502px */
-     @media (max-width: 502px) {
-      .profile-pic {
-        display: none;
-      }
+    .hero-year {
+        font-size: clamp(2rem, 6vw, 4rem);
+        font-weight: normal;
+        color: var(--primary);
+        line-height: 1;
+        margin: 0;
     }
 
-    /* Flip effect on hover */
-    .profile-pic:hover {
-        transform: rotateY(180deg); /* Adjust the rotation angle as needed */
+    .hero-pic {
+        width: clamp(100px, 18vw, 200px);
+        height: clamp(100px, 18vw, 200px);
+        border-radius: 4px;
+        object-fit: cover;
+        flex-shrink: 0;
     }
 
-    /* Clear the float to prevent layout issues */
-    .text-content::after {
-        content: "";
-        display: table;
-        clear: both;
+    @media (max-width: 500px) {
+        .hero {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .hero-pic {
+            width: clamp(80px, 30vw, 120px);
+            height: clamp(80px, 30vw, 120px);
+        }
+    }
+
+    .home-info {
+        margin-top: 0;
     }
 
     .side-by-side-list {
@@ -152,15 +150,15 @@
     }
     .home-carousel::before {
         top: 0;
-        height: 150px;
-        background: linear-gradient(to bottom, var(--code-bg), transparent);
+        height: 200px;
+        background: linear-gradient(to bottom, var(--code-bg), var(--code-bg) 60px, transparent);
     }
     .home-carousel::after {
         bottom: 0;
         background: linear-gradient(to top, var(--code-bg), transparent);
     }
     /* On the list/home body, dark mode uses --theme instead of --code-bg. */
-    .dark .home-carousel::before { background: linear-gradient(to bottom, var(--theme), transparent); }
+    .dark .home-carousel::before { background: linear-gradient(to bottom, var(--theme), var(--theme) 60px, transparent); }
     .dark .home-carousel::after  { background: linear-gradient(to top, var(--theme), transparent); }
 
     /* The scrolling column. The image set is rendered twice, so moving the
@@ -199,11 +197,11 @@
     .home-links-top {
         position: fixed;
         top: 0;
-        right: 200px;
+        right: 0;
         z-index: 99;
         padding: 22px 15px 5px 15px;
-        text-align: right;
         font-size: 12px;
+        white-space: nowrap;
     }
     .home-links-top ul {
         list-style-type: none;
@@ -232,23 +230,36 @@
 </style>
 
     <article class="first-entry home-info">
-        <header class="entry-header">
-            <div class="header-content">
-                <div class="text-content">
-                    <img class="profile-pic" src="\metadata\Kazi.png" alt="Picture of Kazi Hossain wearing a suit and tie">
-                    <h1>{{ .Title | markdownify }}</h1>
-                </div>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>{{ .Title | markdownify }}</h1>
+                <p class="hero-year">&copy;{{ now.Year }}</p>
             </div>
-        </header>
-      
-        <div class="entry-content" id="entry-content"></div>
-        
-        <footer class="entry-footer">
-            {{ partial "social_icons.html" (dict "socialIcons" site.Params.socialIcons "align" .Align) }}
-          </footer>
-
-
+            <img class="hero-pic" src="/metadata/Kazi.png" alt="Kazi Hossain">
+        </div>
     </article>
+
+    <div class="home-info">
+        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF">New York University</a>, where I studied CS and other things. 
+        Currently, working on building tools that I would like to use and can see being helpful for others…
+        trying to build <a href="/future/" class="highlight-b">the future.</a></p>
+        <br>
+        <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
+        <br>
+        <div class="last-section">
+            I like to post about: <br>
+            <br>
+            <ul class="side-by-side-list">
+                <li><a href="#" class="highlight-b">Startup</a></li>
+                <li><a href="#" class="highlight-r">Computer Science</a></li>
+                <li><a href="#" class="highlight-p">Design</a></li>
+                <li><a href="#" class="highlight-op">Notes</a></li>
+                <li><a href="/ctf/" class="highlight-CTF">CTF</a></li>
+                <li><a href="#" class="highlight-leet">Books</a></li>
+                <li><a href="/tags/diy/" class="highlight-diy">DIY Projects</a></li>
+            </ul>
+        </div>
+    </div>
 
     {{- /* Right-side auto-scrolling image carousel (home page only). */ -}}
     {{- $imgs := resources.Match "images/homepage_moving/*" -}}
@@ -326,71 +337,7 @@
     })();
     </script>
 
-    <div class="home-info">
-
-          <!-- other home page  stuff -->
-          <p>I’m a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF">New York University</a>, where I studied CS,  Entrepreneurship and Anthropology. 
-            Currently, working on building tools that I would like to use and can see being helpful for others…
-            trying to build <a href="/future/" class="highlight-b">the future.</a></p>
-
-
-        </br>
-
-          <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
-
-        </br>
-
-      <div class = "last-section">
-
-        I like to post about: <br>
-
-          <br>
-          <ul class="side-by-side-list">
-            <li><a href="/tags/diy/" class="highlight-diy">DIY Projects</a></li>
-            <li><a href="/opt/" class="highlight-b">Optimizations</a></li>
-            <li><a href="/ctf/" class="highlight-CTF">CTF write-ups</a></li>
-            <li><a href="/leetcode/" class="highlight-leet">Leetcode editorial</a></li>
-            <li><a href="/tech/" class="highlight-r">Tech</a></li>
-        </ul>
-        
-      </div>
-      
-
-            
-    </div>
-    <script>
-      // random strings as entry-content
-      const randomStrings = [
-          "Building AI Agents and Robots.",
-          "Machine Learning, Reverse Engineering and Foss enthusiast.",
-          "SWE, DevOps Engineer ~ Chaos Coordinator."
-      ];
-  
-      let currentStringIndex = 0; // Track the current string
-      let currentCharIndex = 0; // Track the current character being typed
-      const typingSpeed = 40; // Speed of typing in milliseconds
-      const pauseDuration = 6000; // Pause duration after typing
-      const entryContent = document.getElementById('entry-content');
-  
-      function typeString(string) {
-          if (currentCharIndex < string.length) {
-              entryContent.innerHTML += string.charAt(currentCharIndex);
-              currentCharIndex++;
-              setTimeout(() => typeString(string), typingSpeed);
-          } else {
-              // Pause for a moment, then start the next string
-              setTimeout(() => {
-                  currentCharIndex = 0; // Reset character index
-                  entryContent.innerHTML = ""; // Clear content
-                  currentStringIndex = (currentStringIndex + 1) % randomStrings.length; // Move to the next string
-                  typeString(randomStrings[currentStringIndex]); // Type the next string
-              }, pauseDuration);
-          }
-      }
-  
-      // type the first string
-      typeString(randomStrings[currentStringIndex]);
-  </script>
+    
   
   
   

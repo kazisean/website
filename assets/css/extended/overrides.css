@@ -5,7 +5,7 @@
     top: 0;
     z-index: 50;
     background: transparent;
-    padding-block: 8px;
+    padding-block: 6px;
 }
 
 /* The nav is one floating pill: rounded corners, subtle shadow, and
@@ -16,16 +16,20 @@
     justify-content: flex-start;
     flex-wrap: nowrap;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     width: max-content;
     max-width: calc(100% - var(--gap) * 2);
-    padding: 4px 8px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.10);
+    padding: 3px 6px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
+    box-shadow: 0 2px 6px -2px rgba(0, 0, 0, 0.12), 0 4px 10px -3px rgba(0, 0, 0, 0.08);
     background: var(--theme);
     line-height: normal;
     position: relative;
+}
+
+.dark .nav {
+    border-color: var(--border);
 }
 
 /* On list pages (homepage, sections, taxonomies), the body uses
@@ -43,8 +47,8 @@
     display: none;
     cursor: pointer;
     color: var(--secondary);
-    padding: 6px;
-    border-radius: 6px;
+    padding: 4px;
+    border-radius: 5px;
     line-height: 1;
 }
 
@@ -74,7 +78,7 @@
 
 /* Make the "Kazi" home link a peer of the menu items (same size, bold brand). */
 .logo a {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
 }
 
@@ -82,8 +86,8 @@
 .logo a,
 #menu a span {
     display: inline-block;
-    padding: 6px 12px;
-    border-radius: 6px;
+    padding: 4px 10px;
+    border-radius: 5px;
     color: var(--secondary);
     transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -95,12 +99,11 @@
     color: var(--primary);
 }
 
-/* Active page: inverted (dark bg / light text in light mode, vice-versa in dark).
-   Also drops the theme's underline on #menu .active. */
+/* Active page: darker text, no background, no underline. */
 .logo a.active,
 #menu .active {
-    background: var(--primary);
-    color: var(--theme);
+    color: var(--primary);
+    border-bottom: none;
 }
 
 #menu .active {
@@ -109,7 +112,7 @@
 
 /* Tighten spacing between menu items so the pill stays compact. */
 #menu li + li {
-    margin-inline-start: 8px;
+    margin-inline-start: 6px;
 }
 
 /* Allow the menu to scroll horizontally inside the capped pill on narrow screens. */
@@ -121,7 +124,7 @@
 @media (max-width: 640px) {
     .nav {
         gap: 2px;
-        padding: 4px;
+        padding: 3px;
         width: calc(100% - var(--gap) * 2);
         justify-content: space-between;
     }
@@ -148,10 +151,10 @@
         left: 0;
         right: 0;
         background: var(--theme);
-        border: 1px solid var(--border);
-        border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+        border-radius: 5px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10), 0 1px 2px rgba(0, 0, 0, 0.06);
-        padding: 6px;
+        padding: 4px;
         gap: 2px;
         z-index: 60;
     }
@@ -179,6 +182,6 @@
 
     .logo a,
     #menu a span {
-        padding: 6px 8px;
+        padding: 4px 8px;
     }
 }

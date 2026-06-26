@@ -63,7 +63,7 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Kazi Hossain."
+    Title: "Kazi Hossain"
     Content: Machine Learning, Reverse Engineering and Foss enthusiast.
     
 
