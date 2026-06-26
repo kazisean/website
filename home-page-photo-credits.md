@@ -22,4 +22,6 @@ https://www.aljazeera.com/news/2026/4/11/artemis-ii-splashdown-astronauts-return
 
 https://ali.medium.com/richard-feynman-the-man-who-only-used-his-intellect-to-enjoy-life-021032151aa0
 
+https://www.newscientist.com/article/2132086-deepminds-ai-beats-worlds-best-go-player-in-latest-face-off/
+
 A lot of these were downloaded from pinterest. If you are the owner of the picture / design feel free to email me or create a pr and I will add you to the credit list :) 

@@ -152,6 +152,7 @@
     }
     .home-carousel::before {
         top: 0;
+        height: 150px;
         background: linear-gradient(to bottom, var(--code-bg), transparent);
     }
     .home-carousel::after {
@@ -194,6 +195,40 @@
         .home-carousel { display: none; }
     }
 
+    /* Top-right Twitter / Github links, styled like footer's Source/Sitemap. */
+    .home-links-top {
+        position: fixed;
+        top: 0;
+        right: 200px;
+        z-index: 99;
+        padding: 22px 15px 5px 15px;
+        text-align: right;
+        font-size: 12px;
+    }
+    .home-links-top ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .home-links-top li {
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .home-links-top a {
+        color: var(--secondary);
+        border-bottom: none;
+    }
+    .home-links-top a:hover {
+        color: var(--primary);
+        border-bottom: none;
+    }
+    @media (max-width: 1200px) {
+        .home-links-top { right: 0; }
+    }
+    @media (max-width: 768px) {
+        .home-links-top { display: none; }
+    }
+
 </style>
 
     <article class="first-entry home-info">
@@ -223,6 +258,15 @@
       </div>
     </aside>
 
+    <div class="home-links-top">
+      <ul>
+        <li><a href="mailto:kazi.h@nyu.edu" id="copy-email">Email</a></li>
+        <li><a href="https://x.com/0x0kazi" target="_blank">Twitter</a></li>
+        <li><a href="https://github.com/kazisean" target="_blank">Github</a></li>
+        <li><a href="/index.xml" target="_blank">RSS</a></li>
+      </ul>
+    </div>
+
     <script>
     (function () {
       var track = document.querySelector('.home-carousel__track');
@@ -238,6 +282,47 @@
       arr.forEach(function (f) { track.appendChild(f); });
       /* Duplicate the shuffled set so translateY(-50 %) loops seamlessly. */
       arr.forEach(function (f) { track.appendChild(f.cloneNode(true)); });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var emailLink = document.getElementById('copy-email');
+      if (!emailLink) return;
+      emailLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        var email = 'kazi.h@nyu.edu';
+        var copy = function (text) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+          }
+          return new Promise(function (resolve, reject) {
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+              document.execCommand('copy');
+              resolve();
+            } catch (err) {
+              reject(err);
+            }
+            document.body.removeChild(textarea);
+          });
+        };
+        var originalText = emailLink.textContent;
+        emailLink.textContent = 'Copied!';
+        copy(email).then(function () {}, function () {
+          emailLink.textContent = 'Failed';
+        });
+        setTimeout(function () {
+          if (emailLink.textContent === 'Copied!' || emailLink.textContent === 'Failed') {
+            emailLink.textContent = originalText;
+          }
+        }, 1500);
+      });
     })();
     </script>
 
