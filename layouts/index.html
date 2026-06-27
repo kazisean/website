@@ -88,6 +88,13 @@
         margin: 0;
     }
 
+    .entry-content {
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        color: var(--secondary);
+        min-height: 1.2em;
+        line-height: 1.2;
+    }
+
     .hero-pic {
         width: clamp(100px, 18vw, 200px);
         height: clamp(100px, 18vw, 200px);
@@ -234,6 +241,7 @@
             <div class="hero-text">
                 <h1>{{ .Title | markdownify }}</h1>
                 <p class="hero-year">&copy;{{ now.Year }}</p>
+                <div class="entry-content" id="entry-content"></div>
             </div>
             <img class="hero-pic" src="/metadata/Kazi.png" alt="Kazi Hossain">
         </div>
@@ -341,6 +349,37 @@
   
   
   
+
+    <script>
+      var randomStrings = [
+          "Building AI Agents and Robots.",
+          "Machine Learning, Reverse Engineering and Foss enthusiast.",
+          "SWE, DevOps Engineer ~ Chaos Coordinator."
+      ];
+
+      var currentStringIndex = 0;
+      var currentCharIndex = 0;
+      var typingSpeed = 40;
+      var pauseDuration = 6000;
+      var entryContent = document.getElementById('entry-content');
+
+      function typeString(string) {
+          if (currentCharIndex < string.length) {
+              entryContent.innerHTML += string.charAt(currentCharIndex);
+              currentCharIndex++;
+              setTimeout(function () { typeString(string); }, typingSpeed);
+          } else {
+              setTimeout(function () {
+                  currentCharIndex = 0;
+                  entryContent.innerHTML = "";
+                  currentStringIndex = (currentStringIndex + 1) % randomStrings.length;
+                  typeString(randomStrings[currentStringIndex]);
+              }, pauseDuration);
+          }
+      }
+
+      typeString(randomStrings[currentStringIndex]);
+    </script>
 
   {{ end }}
 
