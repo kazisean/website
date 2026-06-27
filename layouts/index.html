@@ -67,32 +67,38 @@
 
     .hero {
         display: flex;
-        align-items: flex-end;
+        align-items: flex-start;
         justify-content: space-between;
         gap: clamp(1rem, 3vw, 2.5rem);
     }
 
     .hero-text h1 {
-        font-size: clamp(2rem, 6vw, 4rem);
+        font-size: clamp(2rem, 6vw, 3.5rem);
         font-weight: normal;
         color: var(--primary);
-        line-height: 1.1;
-        margin: 0;
-    }
-
-    .hero-year {
-        font-size: clamp(2rem, 6vw, 4rem);
-        font-weight: normal;
-        color: var(--primary);
-        line-height: 1;
-        margin: 0;
-    }
-
-    .entry-content {
-        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
-        color: var(--secondary);
-        min-height: 1.2em;
         line-height: 1.2;
+        margin: 0 0 1.5rem 0;
+        font-family: serif;
+    }
+
+    .hero-list {
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero-list-item {
+        color: var(--primary);
+    }
+    
+    .hero-list-item-indent {
+        margin-left: 2rem;
+    }
+
+    .hero-action {
+        color: var(--secondary);
     }
 
     .hero-pic {
@@ -105,12 +111,19 @@
 
     @media (max-width: 500px) {
         .hero {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: flex-start;
         }
         .hero-pic {
             width: clamp(80px, 30vw, 120px);
             height: clamp(80px, 30vw, 120px);
+            margin-bottom: 1rem;
+        }
+        .hero-text h1 {
+            margin-bottom: 1rem;
+        }
+        .hero-list-item-indent {
+            margin-left: 1rem;
         }
     }
 
@@ -200,38 +213,92 @@
         .home-carousel { display: none; }
     }
 
-    /* Top-right Twitter / Github links, styled like footer's Source/Sitemap. */
-    .home-links-top {
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 99;
-        padding: 22px 15px 5px 15px;
-        font-size: 12px;
-        white-space: nowrap;
-    }
-    .home-links-top ul {
+    /* Inline social links below the hero-list (hero-text). Reuses side-by-side-list
+       for horizontal layout. */
+    .hero-links {
         list-style-type: none;
         padding: 0;
-        margin: 0;
+        margin: 1rem 0 0 0;
+        font-size: 13px;
     }
-    .home-links-top li {
+    .hero-links li {
         display: inline-block;
-        margin-left: 10px;
+        margin-right: 12px;
     }
-    .home-links-top a {
+    .hero-links a {
         color: var(--secondary);
         border-bottom: none;
     }
-    .home-links-top a:hover {
+    .hero-links a:hover {
         color: var(--primary);
         border-bottom: none;
     }
-    @media (max-width: 1200px) {
-        .home-links-top { right: 0; }
+
+    /* Link hover preview card (home page only).
+       A single reusable floating card that shows a screenshot of the
+       target page plus its title/description/logo when the user hovers a
+       link marked with data-preview="<url>". Screenshots + metadata come
+       from static/previews/previews.json (built by scripts/fetch-previews.js)
+       so the live site makes no external requests. */
+    .link-preview-card {
+        position: fixed;
+        z-index: 40;                 /* above the home carousel, below the header */
+        width: clamp(220px, 22vw, 300px);
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+        pointer-events: none;        /* invisible card can't block underlying clicks */
+        opacity: 0;
+        transform: scale(0.96) translateY(6px);
+        transition: opacity 180ms ease-out, transform 180ms ease-out;
     }
-    @media (max-width: 768px) {
-        .home-links-top { display: none; }
+    .link-preview-card.is-visible {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;        /* once shown the card is hoverable + clickable */
+        cursor: pointer;
+    }
+    .link-preview-card__screenshot {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;        /* show the top of the page, not the footer */
+    }
+    /* Respect users who prefer reduced motion — show/hide without animating. */
+    @media (prefers-reduced-motion: reduce) {
+        .link-preview-card { transition: none; }
+    }
+    /* Hide the card on phone screens (matches the existing mobile cutoff). */
+    @media (max-width: 500px) {
+        .link-preview-card { display: none; }
+    }
+
+    /* "Writing" and "Recent Projects" subsections below the topic pills.
+       Reuse the theme's --primary / --secondary tokens so the look tracks
+       light/dark mode without extra rules. */
+    .home-section {
+        margin-top: 1.5rem;
+    }
+    .home-section__heading {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        font-weight: normal;
+        color: var(--primary);
+        margin: 0 0 0.5rem 0;
+    }
+    .home-section__list {
+        margin: 0;
+        padding-left: 1.25rem;
+        color: var(--secondary);
+        line-height: 1.6;
+    }
+    .home-section__list li {
+        margin-bottom: 0.4rem;
+    }
+    .home-section__list a {
+        color: var(--primary);
     }
 
 </style>
@@ -239,18 +306,27 @@
     <article class="first-entry home-info">
         <div class="hero">
             <div class="hero-text">
-                <h1>{{ .Title | markdownify }}</h1>
-                <p class="hero-year">&copy;{{ now.Year }}</p>
-                <div class="entry-content" id="entry-content"></div>
+                <h1>Hi, I'm Kazi.</h1>
+                <div class="hero-list">
+                    <div class="hero-list-item"><span class="hero-action">building</span> software that makes people's life a little easier</div>
+                    <div class="hero-list-item hero-list-item-indent"><span class="hero-action">exploring</span> startups, tech, and small habits</div>
+                    <div class="hero-list-item"><span class="hero-action">drawn to</span> big cities, bold ideas and thoughtful writing</div>
+                </div>
+                <ul class="hero-links">
+                    <li><a href="mailto:kazi.h@nyu.edu" id="copy-email">Email</a></li>
+                    <li><a href="https://x.com/0x0kazi" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/kazisean" target="_blank">Github</a></li>
+                    <li><a href="/index.xml" target="_blank">RSS</a></li>
+                </ul>
             </div>
             <img class="hero-pic" src="/metadata/Kazi.png" alt="Kazi Hossain">
         </div>
     </article>
 
     <div class="home-info">
-        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF">New York University</a>, where I studied CS, Entrepreneurship and Anthropology. 
+        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF" data-preview="https://cs.nyu.edu/">New York University</a>, where I studied CS, Entrepreneurship and Anthropology. 
         Currently, working on building tools that I would like to use and can see being helpful for others…
-        trying to build <a href="/future/" class="highlight-b">the future.</a></p>
+        trying to build <a href="/future/" class="highlight-b" data-preview="https://hossain.cc/future/">the future.</a></p>
         <br>
         <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
         <br>
@@ -259,10 +335,36 @@
             <br>
             <ul class="side-by-side-list">
                 <li><a href="#" class="highlight-b">Startup</a></li>
+                <li><a href="#" class="highlight-CTF">Health</a></li>
                 <li><a href="/topics/diy" class="highlight-r">DIY Projects</a></li>
                 <li><a href="/leetcode" class="highlight-leet">Leetcode editorial</a></li>
-                <li><a href="#" class="highlight-CTF">Notes</a></li>
                 <li><a href="/topics" class="highlight-diy">More..</a></li>
+            </ul>
+        </div>
+
+        <!-- Latest blog posts. Pulls from site.Params.mainSections (currently
+             the "posts" section) and mirrors the theme's homepage filter so
+             posts flagged hiddenInHomeList stay hidden here too. "first 2"
+             naturally falls back to 1 (or none) when fewer posts exist. -->
+        <div class="home-section">
+            <h2 class="home-section__heading">Writing</h2>
+            <ul class="home-section__list">
+                {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
+                {{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true" }}
+                {{- range first 2 $posts }}
+                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                {{- else }}
+                <li>No posts yet.</li>
+                {{- end }}
+            </ul>
+        </div>
+
+        <!-- Most recent / active projects (curated, not auto-generated). -->
+        <div class="home-section">
+            <h2 class="home-section__heading">Recent Projects</h2>
+            <ul class="home-section__list">
+                <li><a href="https://iideploy.com" target="_blank" rel="noopener">iiDeploy</a> (iideploy.com) B2B SAAS. Built solo in 4 weeks &mdash; design, full-stack, backend, frontend, DB, and email. This is a full stack OS deployment engine that automates windows deployments.</li>
+                <li><a href="https://slumbr.me" target="_blank" rel="noopener">Slumbr</a> (slumbr.me) Sleep tracking app designed and shipped to fix my own bad habits. Available on the App Store.</li>
             </ul>
         </div>
     </div>
@@ -275,13 +377,10 @@
       </div>
     </aside>
 
-    <div class="home-links-top">
-      <ul>
-        <li><a href="mailto:kazi.h@nyu.edu" id="copy-email">Email</a></li>
-        <li><a href="https://x.com/0x0kazi" target="_blank">Twitter</a></li>
-        <li><a href="https://github.com/kazisean" target="_blank">Github</a></li>
-        <li><a href="/index.xml" target="_blank">RSS</a></li>
-      </ul>
+    {{- /* Reusable floating card shown when hovering a data-preview link.
+            Populated by the script below from static/previews/previews.json. */ -}}
+    <div class="link-preview-card" aria-hidden="true">
+      <img class="link-preview-card__screenshot" alt="">
     </div>
 
     <script>
@@ -343,40 +442,108 @@
     })();
     </script>
 
-    
-  
-  
-  
-
     <script>
-      var randomStrings = [
-          "Building AI Agents and Robots.",
-          "Machine Learning, Reverse Engineering and Foss enthusiast.",
-          "SWE, DevOps Engineer ~ Chaos Coordinator."
-      ];
+    (function () {
+      var card = document.querySelector('.link-preview-card');
+      if (!card) return;
 
-      var currentStringIndex = 0;
-      var currentCharIndex = 0;
-      var typingSpeed = 40;
-      var pauseDuration = 6000;
-      var entryContent = document.getElementById('entry-content');
+      var screenshotEl = card.querySelector('.link-preview-card__screenshot');
 
-      function typeString(string) {
-          if (currentCharIndex < string.length) {
-              entryContent.innerHTML += string.charAt(currentCharIndex);
-              currentCharIndex++;
-              setTimeout(function () { typeString(string); }, typingSpeed);
-          } else {
-              setTimeout(function () {
-                  currentCharIndex = 0;
-                  entryContent.innerHTML = "";
-                  currentStringIndex = (currentStringIndex + 1) % randomStrings.length;
-                  typeString(randomStrings[currentStringIndex]);
-              }, pauseDuration);
-          }
+      var manifest = null;       // contents of static/previews/previews.json
+      var showTimer = null;      // delayed show, so quick mouse-overs don't flicker
+      var hideTimer = null;      // delayed hide, so the pointer can cross the gap onto the card
+      var activeLink = null;     // the link the card is currently previewing (for card click)
+      var SHOW_DELAY_MS = 250;
+      var HIDE_DELAY_MS = 100;   // grace period while the pointer travels from link to card
+
+      /* Fetch the committed preview manifest once. Built by
+         scripts/fetch-previews.js. If it is missing (script not yet run)
+         we leave manifest null and every hover is a silent no-op. */
+      fetch('/previews/previews.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (json) { manifest = json; })
+        .catch(function () { manifest = null; });
+
+      function positionCard(link) {
+        var rect = link.getBoundingClientRect();
+        var gap = 8;
+        var top = rect.top - card.offsetHeight - gap;   /* default: above the link */
+        var left = rect.left;
+        /* Fall back below if there is no room above. */
+        if (top < 8) {
+          top = rect.bottom + gap;
+        }
+        /* Clamp horizontally so the card never overflows the right edge. */
+        if (left + card.offsetWidth > window.innerWidth - 8) {
+          left = window.innerWidth - card.offsetWidth - 8;
+        }
+        if (left < 8) left = 8;
+        if (top < 8) top = 8;
+        card.style.top = top + 'px';
+        card.style.left = left + 'px';
       }
 
-      typeString(randomStrings[currentStringIndex]);
+      function showCard(link) {
+        var url = link.getAttribute('data-preview');
+        if (!manifest || !manifest[url]) return;   /* not in manifest: skip silently */
+        var entry = manifest[url];
+        screenshotEl.src = entry.screenshot;
+        activeLink = link;
+        positionCard(link);
+        card.classList.add('is-visible');
+      }
+
+      function hideCard() {
+        card.classList.remove('is-visible');
+        activeLink = null;
+      }
+
+      function scheduleHide() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideCard, HIDE_DELAY_MS);
+      }
+
+      function cancelHide() {
+        clearTimeout(hideTimer);
+      }
+
+      /* Clicking the card opens the same destination as its link, preserving
+         target=_blank so the page opens in a new tab. */
+      card.addEventListener('click', function () {
+        if (activeLink) activeLink.click();
+      });
+
+      /* Hovering the card itself keeps it open (so the user can move the
+         pointer from the link onto the card to read/click it). */
+      card.addEventListener('mouseenter', cancelHide);
+      card.addEventListener('mouseleave', scheduleHide);
+
+      /* Use mouseover/mouseout (they bubble) so we can delegate from document
+         instead of attaching a listener to every data-preview link. */
+      document.addEventListener('mouseover', function (e) {
+        var link = e.target.closest('[data-preview]');
+        if (!link) return;
+        clearTimeout(showTimer);
+        cancelHide();
+        showTimer = setTimeout(function () { showCard(link); }, SHOW_DELAY_MS);
+      });
+
+      document.addEventListener('mouseout', function (e) {
+        var link = e.target.closest('[data-preview]');
+        if (!link) return;
+        /* Only hide when the pointer actually leaves the link, not when it
+           moves between child text nodes inside it. */
+        var stillInside = e.relatedTarget && link.contains(e.relatedTarget);
+        if (stillInside) return;
+        clearTimeout(showTimer);
+        scheduleHide();
+      });
+
+      /* If the page scrolls or resizes while a card is open, repositioning
+         against a stale link rect would misplace it — just hide it. */
+      window.addEventListener('scroll', hideCard, { passive: true });
+      window.addEventListener('resize', hideCard, { passive: true });
+    })();
     </script>
 
   {{ end }}

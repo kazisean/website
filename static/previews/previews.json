@@ -1,0 +1,14 @@
+{
+  "https://cs.nyu.edu/": {
+    "title": "NYU Computer Science",
+    "description": "The homepage of the Computer Science Department at the Courant Institute of Mathematical Sciences, a part of New York University.",
+    "logo": "https://cs.nyu.edu/home/android-icon-192x192.png",
+    "screenshot": "/previews/cs-nyu-edu.png"
+  },
+  "https://hossain.cc/future/": {
+    "title": "The future I want to build",
+    "description": "Below is a continues list of things I believe are crucial to build.",
+    "logo": "https://raw.githubusercontent.com/kazisean/website/main/assets/images/main/fav/favicon-32x32.png",
+    "screenshot": "/previews/hossain-cc-future.png"
+  }
+}
