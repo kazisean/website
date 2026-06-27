@@ -4,7 +4,7 @@ summary: "Running a mini homelab and workstation on Linux Mint Cinnamon"
 showToc: false
 hideSummary: false
 ShowReadingTime: true
-tags: ["DIY"]
+topics: ["DIY"]
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 disableShare: false

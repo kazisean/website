@@ -6,7 +6,7 @@ draft: true
 showToc: false
 hideSummary: false
 ShowReadingTime: true
-tags: ["DIY"]
+topics: ["DIY"]
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 disableShare: false

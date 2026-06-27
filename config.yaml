@@ -3,6 +3,8 @@
 baseURL: "https://hossain.cc/"
 title: Kazi Hossain
 copyright: ""
+taxonomies:
+  tag: topics
 pagination:
   pagerSize: 5
 theme: ["PaperMod"]
@@ -58,8 +60,8 @@ params:
     #buttons:
    #   - name: Archives
     #    url: archives
-   #   - name: Tags
-   #     url: tags
+   #   - name: Topics
+    #     url: topics
 
   # home-info mode
   homeInfoParams:
@@ -119,7 +121,7 @@ menu:
       weight: 20
     # - identifier: topics
     #   name: Topics
-    #   url: /tags/
+    #   url: /topics/
     #   weight: 30
     # - identifier: notes
     #   name: Notes

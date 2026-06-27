@@ -5,7 +5,8 @@
     top: 0;
     z-index: 50;
     background: transparent;
-    padding-block: 6px;
+    padding-block-start: 13px;
+    padding-block-end: 6px;
 }
 
 /* The nav is one floating pill: rounded corners, subtle shadow, and
