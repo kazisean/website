@@ -10,5 +10,17 @@
     "description": "Below is a continues list of things I believe are crucial to build.",
     "logo": "https://raw.githubusercontent.com/kazisean/website/main/assets/images/main/fav/favicon-32x32.png",
     "screenshot": "/previews/hossain-cc-future.png"
+  },
+  "https://iideploy.com": {
+    "title": "iiDeploy — The MDT Replacement for Zero-Click Windows Deployment",
+    "description": "MDT is retired. iiDeploy is the simplest Windows deployment tool — set up a golden image in under 20 minutes, flash a USB, and image hundreds of machines. Free trial, 1400+ devices supported.",
+    "logo": "https://iideploy.com/favicon.svg",
+    "screenshot": "/previews/iideploy-com.png"
+  },
+  "https://slumbr.me": {
+    "title": "Slumbr: The Sleep Analysis and Sleep Score App for Apple Watch",
+    "description": "Slumbr is a sleep analysis app that provides a detailed sleep score to help you understand and improve your sleep quality. Get personalized insights and take control of your rest.",
+    "logo": "https://www.slumbr.me/apple-touch-icon.png",
+    "screenshot": "/previews/slumbr-me.png"
   }
 }

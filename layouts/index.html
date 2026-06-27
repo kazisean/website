@@ -14,6 +14,11 @@
       white-space: nowrap; /* Prevent line breaks */
   }
 
+    .squiggly-underline {
+      text-decoration: underline wavy rgba(135, 206, 235, 0.8);
+      text-underline-offset: 3px;
+  }
+
   .highlight-p {
       background-color: rgba(179, 128, 241, 0.4); /* Purple color with 70% opacity */
       padding: 1px 7px;
@@ -275,30 +280,17 @@
     @media (max-width: 500px) {
         .link-preview-card { display: none; }
     }
-
-    /* "Writing" and "Recent Projects" subsections below the topic pills.
-       Reuse the theme's --primary / --secondary tokens so the look tracks
-       light/dark mode without extra rules. */
-    .home-section {
-        margin-top: 1.5rem;
-    }
-    .home-section__heading {
-        font-size: clamp(1rem, 2vw, 1.25rem);
-        font-weight: normal;
-        color: var(--primary);
-        margin: 0 0 0.5rem 0;
-    }
-    .home-section__list {
-        margin: 0;
+    /* Restore bullet list styling for the "Currently, I..." list.
+       PaperMod's reset.css strips padding from bare ul, and the footer
+       partial injects `li { display: inline-block }` which suppresses
+       list markers entirely. Reset both for lists directly inside
+       .home-info. */
+    .home-info > ul {
         padding-left: 1.25rem;
-        color: var(--secondary);
-        line-height: 1.6;
+        list-style-type: disc;
     }
-    .home-section__list li {
-        margin-bottom: 0.4rem;
-    }
-    .home-section__list a {
-        color: var(--primary);
+    .home-info > ul > li {
+        display: list-item;
     }
 
 </style>
@@ -328,6 +320,13 @@
         Currently, working on building tools that I would like to use and can see being helpful for others…
         trying to build <a href="/future/" class="highlight-b" data-preview="https://hossain.cc/future/">the future.</a></p>
         <br>
+        <p>Recently, I&hellip;</p>
+        <ul>
+          <li>built and launched <a href="https://iideploy.com" target="_blank" rel="noopener" class="highlight-diy" data-preview="https://iideploy.com">iiDeploy</a> solo in 4 weeks automaing OS Deployments</li>
+          <li>built <a href="https://slumbr.me" target="_blank" rel="noopener" class="highlight-b" data-preview="https://slumbr.me">Slumbr</a>, a sleep tracking app designed and shipped to fix my sleep habits.</li>
+          <li>spent a weekend setting up a <span class="squiggly-underline">DIY <a href="/posts/homelab/">home datacenter</a></span></li>
+        </ul>
+        <br>
         <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
         <br>
         <div class="last-section">
@@ -342,31 +341,8 @@
             </ul>
         </div>
 
-        <!-- Latest blog posts. Pulls from site.Params.mainSections (currently
-             the "posts" section) and mirrors the theme's homepage filter so
-             posts flagged hiddenInHomeList stay hidden here too. "first 2"
-             naturally falls back to 1 (or none) when fewer posts exist. -->
-        <div class="home-section">
-            <h2 class="home-section__heading">Writing</h2>
-            <ul class="home-section__list">
-                {{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections }}
-                {{- $posts = where $posts "Params.hiddenInHomeList" "!=" "true" }}
-                {{- range first 2 $posts }}
-                <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
-                {{- else }}
-                <li>No posts yet.</li>
-                {{- end }}
-            </ul>
-        </div>
 
-        <!-- Most recent / active projects (curated, not auto-generated). -->
-        <div class="home-section">
-            <h2 class="home-section__heading">Recent Projects</h2>
-            <ul class="home-section__list">
-                <li><a href="https://iideploy.com" target="_blank" rel="noopener">iiDeploy</a> (iideploy.com) B2B SAAS. Built solo in 4 weeks &mdash; design, full-stack, backend, frontend, DB, and email. This is a full stack OS deployment engine that automates windows deployments.</li>
-                <li><a href="https://slumbr.me" target="_blank" rel="noopener">Slumbr</a> (slumbr.me) Sleep tracking app designed and shipped to fix my own bad habits. Available on the App Store.</li>
-            </ul>
-        </div>
+
     </div>
 
     {{- /* Right-side auto-scrolling image carousel (home page only). */ -}}
