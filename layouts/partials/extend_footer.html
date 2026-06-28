@@ -2,15 +2,15 @@
 (function () {
   var counter = document.getElementById('view-count');
   if (!counter) return;
-  var path = window.location.pathname;
+  var path = window.location.pathname.replace(/^\//, '');
   var url = 'https://kazi.goatcounter.com/counter/' + path + '.json';
   fetch(url)
     .then(function (r) { return r.json(); })
     .then(function (data) {
-      var count = data.count;
-      if (typeof count === 'number' && count > 0) {
+      var count = parseInt(data.count, 10) || 0;
+      if (count > 0) {
         counter.textContent = count + ' view' + (count !== 1 ? 's' : '');
-      } else if (count === 0) {
+      } else {
         counter.textContent = '0 views';
       }
     })
