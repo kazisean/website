@@ -9,7 +9,7 @@
     .then(function (data) {
       var count = parseInt(data.count, 10) || 0;
       if (count > 0) {
-        counter.textContent = count + ' view' + (count !== 1 ? 's' : '');
+        counter.textContent = count + ' views';
       } else {
         counter.textContent = '0 views';
       }
