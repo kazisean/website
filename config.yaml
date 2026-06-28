@@ -116,7 +116,7 @@ params:
 menu:
   main:
     - identifier: archive
-      name: Blog
+      name: Writings
       url: /posts/
       weight: 20
     # - identifier: topics
@@ -129,18 +129,16 @@ menu:
     #   weight: 40
     #   params:
     #     target: _blank
+    - identifier: ideas
+      name: Future
+      url: /future/
+      weight: 55
     - identifier: Projects
       name: Projects
       url: /projects/
       weight: 50
-    - identifier: misc
-      name: Misc
-      url: /misc/
-      weight: 60
-    - identifier: links
-      name: Links
-      url: /links/
-      weight: 70
+
+
     # - identifier: resume
     #   name: Resume
     #   url: 

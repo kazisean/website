@@ -1,6 +1,6 @@
 ---
 title: "My mini Homelab"
-summary: "Running a mini homelab and workstation on Linux Mint Cinnamon"
+summary: "Running a mini homelab and workstation on Linux"
 showToc: false
 hideSummary: false
 ShowReadingTime: true

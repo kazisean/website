@@ -9,7 +9,7 @@
 
     .highlight-b {
       background-color: rgba(135, 206, 235, 0.5); /* Blue color with 70% opacity */
-      padding: 1px 7px;
+      padding: 1px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
@@ -21,35 +21,35 @@
 
   .highlight-p {
       background-color: rgba(179, 128, 241, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
+      padding: 1px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-r {
       background-color: rgba(0, 153, 153, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
+      padding: 1px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-leet {
       background-color: rgba(255, 204, 0, 0.4); /* Purple color with 70% opacity */
-      padding: 2px 8px;
+      padding: 2px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-CTF {
-      background-color: rgba(255, 102, 102, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
+      background-color: rgba(179, 128, 241, 0.4);
+      padding: 1px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-diy {
       background-color: rgba(0, 204, 0, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
+      padding: 1px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
@@ -57,7 +57,7 @@
   .highlight-op {
       background-color: rgba(0, 0, 0, 0.7); /* Purple color with 70% opacity */
       color: aliceblue;
-      padding: 2px 7px;
+      padding: 2px 2px;
       border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
@@ -202,6 +202,9 @@
         margin: 0;
         margin-bottom: 16px;            /* gap between each picture */
     }
+    .home-carousel__track figure a {
+        display: block;
+    }
     .home-carousel__track img {
         width: 100%;
         display: block;
@@ -293,6 +296,33 @@
         display: list-item;
     }
 
+    .recent-post-header {
+        display: flex;
+        align-items: baseline;
+    }
+    .recent-post-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1;
+    }
+    .recent-post-meta {
+        white-space: nowrap;
+        flex-shrink: 0;
+        color: var(--secondary);
+        font-size: 0.85rem;
+        margin-left: 0.3rem;
+    }
+    .recent-post-summary {
+        margin: 0.25rem 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--secondary);
+        font-size: 0.95rem;
+    }
+
+    
 </style>
 
     <article class="first-entry home-info">
@@ -301,7 +331,7 @@
                 <h1>Hi, I'm Kazi.</h1>
                 <div class="hero-list">
                     <div class="hero-list-item"><span class="hero-action">building</span> software that makes people's life a little easier</div>
-                    <div class="hero-list-item hero-list-item-indent"><span class="hero-action">exploring</span> startups, tech, and small habits</div>
+                    <div class="hero-list-item hero-list-item-indent"><span class="hero-action">exploring</span> startups, tech, and atomic habits</div>
                     <div class="hero-list-item"><span class="hero-action">drawn to</span> big cities, bold ideas and thoughtful writing</div>
                 </div>
                 <ul class="hero-links">
@@ -316,20 +346,30 @@
     </article>
 
     <div class="home-info">
-        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF" data-preview="https://cs.nyu.edu/">New York University</a>, where I studied CS, Entrepreneurship and Anthropology. 
-        Currently, working on building tools that I would like to use and can see being helpful for others…
-        trying to build <a href="/future/" class="highlight-b" data-preview="https://hossain.cc/future/">the future.</a></p>
+        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF" data-preview="https://cs.nyu.edu/">New York University</a>, where I studied Computer Science, and a bit of Entrepreneurship and Anthropology. 
+        </p>
         <br>
-        <p>Recently, I&hellip;</p>
+        <p class="hero-action">Recently, I&hellip;</p>
         <ul>
           <li>built and launched <a href="https://iideploy.com" target="_blank" rel="noopener" class="highlight-diy" data-preview="https://iideploy.com">iiDeploy</a> solo in 4 weeks automaing OS Deployments</li>
           <li>built <a href="https://slumbr.me" target="_blank" rel="noopener" class="highlight-b" data-preview="https://slumbr.me">Slumbr</a>, a sleep tracking app designed and shipped to fix my sleep habits.</li>
-          <li>spent a weekend setting up a <span class="squiggly-underline">DIY <a href="/posts/homelab/">home datacenter</a></span></li>
+          <li>spent a weekend setting up a <span class="squiggly-underline">mini <a href="/posts/homelab/">home datacenter</a></span></li>
         </ul>
         <br>
         <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
         <br>
-        <div class="last-section">
+        {{- range first 1 (where site.RegularPages "Section" "posts") }}
+        <p class="hero-action">Recent Writing&hellip;</p>
+        <div class="recent-post">
+          <div class="recent-post-header">
+            <a href="{{ .RelPermalink }}" class="recent-post-title">{{ .Title }}</a>
+            <span class="recent-post-meta">· <span id="homepage-view-count" data-path="{{ .RelPermalink }}">— views</span></span>
+          </div>
+          <p class="recent-post-summary">{{ .Params.summary }}</p>
+        </div>
+        {{- end }}
+        <br>
+        <!-- <div class="last-section">
             I like to post about: <br>
             <br>
             <ul class="side-by-side-list">
@@ -339,7 +379,7 @@
                 <li><a href="/leetcode" class="highlight-leet">Leetcode editorial</a></li>
                 <li><a href="/topics" class="highlight-diy">More..</a></li>
             </ul>
-        </div>
+        </div> -->
 
 
 
@@ -349,7 +389,15 @@
     {{- $imgs := resources.Match "images/homepage_moving/*" -}}
     <aside class="home-carousel" aria-hidden="true">
       <div class="home-carousel__track">
-        {{- range $imgs }}<figure><img src="{{ .RelPermalink }}" loading="lazy" alt=""></figure>{{ end -}}
+        {{- range $imgs }}
+          {{- if eq .Name "fat32.png" }}
+            <figure><a href="https://github.com/kazisean/FatRec32" target="_blank" rel="noopener noreferrer"><img src="{{ .RelPermalink }}" loading="lazy" alt=""></a></figure>
+          {{- else if eq .Name "no-bg.png" }}
+            <figure><a href="https://github.com/kazisean/no-backdrop" target="_blank" rel="noopener noreferrer"><img src="{{ .RelPermalink }}" loading="lazy" alt=""></a></figure>
+          {{- else }}
+            <figure><img src="{{ .RelPermalink }}" loading="lazy" alt=""></figure>
+          {{- end }}
+        {{- end }}
       </div>
     </aside>
 
@@ -519,6 +567,26 @@
          against a stale link rect would misplace it — just hide it. */
       window.addEventListener('scroll', hideCard, { passive: true });
       window.addEventListener('resize', hideCard, { passive: true });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var counter = document.getElementById('homepage-view-count');
+      if (!counter) return;
+      var path = counter.getAttribute('data-path');
+      var url = 'https://kazi.goatcounter.com/counter/' + path + '.json';
+      fetch(url)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var count = data.count;
+          if (typeof count === 'number' && count > 0) {
+            counter.textContent = count + ' view' + (count !== 1 ? 's' : '');
+          } else if (count === 0) {
+            counter.textContent = '0 views';
+          }
+        })
+        .catch(function () {});
     })();
     </script>
 
