@@ -3,6 +3,8 @@
 baseURL: "https://hossain.cc/"
 title: Kazi Hossain
 copyright: ""
+taxonomies:
+  tag: topics
 pagination:
   pagerSize: 5
 theme: ["PaperMod"]
@@ -24,20 +26,31 @@ minify:
 
 
 
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON
-
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Journey through a maze of Kazi Hossain’s musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
+  description: "Journey through a maze of Kazi Hossain's musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
   author: Kazi Hossain
+  keywords:
+    - "Kazi Hossain"
+    - "Computer Science"
+    - "Machine Learning"
+    - "Reverse Engineering"
+    - "DIY"
+    - "CTF"
+    - "Leetcode"
+    - "NYU"
+    - "Software Engineering"
+    - "Homelab"
+    - "Optimization"
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/kazisean"
+      - "https://x.com/0x0kazi"
   # author: ["Me", "You"] # multiple authors
 
 
-  defaultTheme: auto
+  defaultTheme: dark
   # disableThemeToggle: true
   ShowShareButtons: true
   ShowReadingTime: true
@@ -64,14 +77,17 @@ params:
     #buttons:
    #   - name: Archives
     #    url: archives
-   #   - name: Tags
-   #     url: tags
+   #   - name: Topics
+    #     url: topics
 
   # home-info mode
   homeInfoParams:
-    Title: "Kazi Hossain."
+    Title: "Kazi Hossain"
     Content: Machine Learning, Reverse Engineering and Foss enthusiast.
     
+
+  social:
+    twitter: "0x0kazi"
 
   socialIcons:
     - name: Email
@@ -117,28 +133,15 @@ params:
   #     hiddenInList: true # hide on list pages and home
   #     hiddenInSingle: true # hide on single page
 
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-
 menu:
   main:
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 10
     - identifier: archive
-      name: Blog
+      name: Writings
       url: /posts/
       weight: 20
     # - identifier: topics
     #   name: Topics
-    #   url: /tags/
+    #   url: /topics/
     #   weight: 30
     # - identifier: notes
     #   name: Notes
@@ -146,22 +149,16 @@ menu:
     #   weight: 40
     #   params:
     #     target: _blank
+    - identifier: ideas
+      name: Future
+      url: /future/
+      weight: 55
     - identifier: Projects
       name: Projects
       url: /projects/
       weight: 50
-    - identifier: about
-      name: About
-      url: /
-      weight: 80
-    - identifier: misc
-      name: Misc
-      url: /misc/
-      weight: 60
-    - identifier: links
-      name: Links
-      url: /links/
-      weight: 70
+
+
     # - identifier: resume
     #   name: Resume
     #   url: 

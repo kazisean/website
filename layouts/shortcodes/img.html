@@ -1,0 +1,4 @@
+{{- $img := resources.Get (.Get 0) -}}
+{{- if $img -}}
+<img src="{{ $img.RelPermalink }}" alt="{{ .Get 1 }}" loading="lazy">
+{{- end -}}

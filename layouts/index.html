@@ -1,113 +1,136 @@
 
 {{ define "main" }}
-<meta property="og:type" content="website" />
-<meta name='subject' content="aa"/>
-
   {{- with site.Params.homeInfoParams }}
 
   <style>
 
-    /* Align the profile picture to the right */
-    .profile-pic {
-        position: absolute; /* Set to absolute position */
-        top: 40px; /* Adjust the top position as needed */
-        right: 10px; /* Adjust the right position as needed */
-        border-radius: 50%;
-        max-width: 25%;
-        height: auto;
-        margin-bottom: 10px;
-        z-index: 999; /* Set a high z-index to ensure it's on top */
-        transition: transform 0.6s ease;
-    }
-    
     .highlight-b {
       background-color: rgba(135, 206, 235, 0.5); /* Blue color with 70% opacity */
-      padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 1px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
+  }
+
+    .squiggly-underline {
+      text-decoration: underline wavy rgba(135, 206, 235, 0.8);
+      text-underline-offset: 3px;
   }
 
   .highlight-p {
       background-color: rgba(179, 128, 241, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 1px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-r {
       background-color: rgba(0, 153, 153, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 1px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-leet {
       background-color: rgba(255, 204, 0, 0.4); /* Purple color with 70% opacity */
-      padding: 2px 8px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 2px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-CTF {
-      background-color: rgba(255, 102, 102, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      background-color: rgba(179, 128, 241, 0.4);
+      padding: 1px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-diy {
       background-color: rgba(0, 204, 0, 0.4); /* Purple color with 70% opacity */
-      padding: 1px 7px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 1px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
   .highlight-op {
       background-color: rgba(0, 0, 0, 0.7); /* Purple color with 70% opacity */
       color: aliceblue;
-      padding: 2px 7px;
-      border-radius: 10px; /* Rounded corners */
+      padding: 2px 2px;
+      border-radius: 4px;
       white-space: nowrap; /* Prevent line breaks */
   }
 
+    /* Hero: name + profile picture component */
+    .first-entry.home-info {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        margin: 0;
+    }
 
-    @media (max-width: 761px) {
-      .profile-pic {
-        position: absolute; /* Set to absolute position */
-        top: 30px; /* Adjust the top position as needed */
-        right: 10px; /* Adjust the right position as needed */
-        border-radius: 50%;
-        max-width: 20%;
-        height: auto;
-        margin-bottom: 10px;
-        z-index: 999; /* Set a high z-index to ensure it's on top */
-      }
+    .hero {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: clamp(1rem, 3vw, 2.5rem);
+    }
+
+    .hero-text h1 {
+        font-size: clamp(2rem, 6vw, 3.5rem);
+        font-weight: normal;
+        color: var(--primary);
+        line-height: 1.2;
+        margin: 0 0 1.5rem 0;
+        font-family: serif;
+    }
+
+    .hero-list {
+        font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .hero-list-item {
+        color: var(--primary);
+    }
+    
+    .hero-list-item-indent {
+        margin-left: 2rem;
+    }
+
+    .hero-action {
+        color: var(--secondary);
+    }
+
+    .hero-pic {
+        width: clamp(100px, 18vw, 200px);
+        height: clamp(100px, 18vw, 200px);
+        border-radius: 4px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 500px) {
+        .hero {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+        .hero-pic {
+            width: clamp(80px, 30vw, 120px);
+            height: clamp(80px, 30vw, 120px);
+            margin-bottom: 1rem;
+        }
+        .hero-text h1 {
+            margin-bottom: 1rem;
+        }
+        .hero-list-item-indent {
+            margin-left: 1rem;
+        }
     }
 
     .home-info {
-      margin-top: 0; /* Adjust the value to your preference */
-   }
-
-    
-
-
-     /* Hide the profile picture on screens smaller than 502px */
-     @media (max-width: 502px) {
-      .profile-pic {
-        display: none;
-      }
-    }
-
-    /* Flip effect on hover */
-    .profile-pic:hover {
-        transform: rotateY(180deg); /* Adjust the rotation angle as needed */
-    }
-
-    /* Clear the float to prevent layout issues */
-    .text-content::after {
-        content: "";
-        display: table;
-        clear: both;
+        margin-top: 0;
     }
 
     .side-by-side-list {
@@ -121,97 +144,456 @@
     margin-right: 10px; /* Adjust spacing between items as needed */
 }
 
+    /* Vertical "moving logos" carousel: a continuous strip of images
+       scrolling upward, flush to the right edge of the browser window.
+       Home-only (this layout is only used on the home page) and hidden on
+       narrow screens where it would overlap the content column. */
+    .home-carousel {
+        position: fixed;              /* anchored to the viewport, not the content column */
+        top: 0;
+        bottom: 70px;                 /* leave room for the footer links on the right */
+        right: 0;                      /* flush to the browser's right edge */
+        width: 200px;
+        overflow: hidden;             /* clips the scrolling track; enables the fade masks */
+        z-index: 1;                   /* stays below the header (z-index: 50) */
+    }
 
+    /* Top/bottom shadow fades so images softly appear/disappear at the very
+       top and very bottom edges of the viewport. */
+    .home-carousel::before,
+    .home-carousel::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 80px;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .home-carousel::before {
+        top: 0;
+        height: 200px;
+        background: linear-gradient(to bottom, var(--code-bg), var(--code-bg) 60px, transparent);
+    }
+    .home-carousel::after {
+        bottom: 0;
+        background: linear-gradient(to top, var(--code-bg), transparent);
+    }
+    /* On the list/home body, dark mode uses --theme instead of --code-bg. */
+    .dark .home-carousel::before { background: linear-gradient(to bottom, var(--theme), var(--theme) 60px, transparent); }
+    .dark .home-carousel::after  { background: linear-gradient(to top, var(--theme), transparent); }
+
+    /* The scrolling column. The image set is rendered twice, so moving the
+       track up by exactly 50% lands on an identical frame = seamless loop. */
+    .home-carousel__track {
+        display: flex;
+        flex-direction: column;
+        animation: home-scroll 300s linear infinite;
+    }
+    @keyframes home-scroll {
+        to { transform: translateY(-50%); }
+    }
+
+    .home-carousel__track figure {
+        flex-shrink: 0;
+        margin: 0;
+        margin-bottom: 16px;            /* gap between each picture */
+    }
+    .home-carousel__track figure a {
+        display: block;
+    }
+    .home-carousel__track img {
+        width: 100%;
+        display: block;
+    }
+
+    /* Pause the motion for users who prefer reduced motion. */
+    @media (prefers-reduced-motion: reduce) {
+        .home-carousel__track { animation: none; }
+    }
+
+    /* Hide when the right margin can't comfortably fit the strip without
+       covering the content column. */
+    @media (max-width: 1200px) {
+        .home-carousel { display: none; }
+    }
+
+    /* Inline social links below the hero-list (hero-text). Reuses side-by-side-list
+       for horizontal layout. */
+    .hero-links {
+        list-style-type: none;
+        padding: 0;
+        margin: 1rem 0 0 0;
+        font-size: 13px;
+    }
+    .hero-links li {
+        display: inline-block;
+        margin-right: 12px;
+    }
+    .hero-links a {
+        color: var(--secondary);
+        border-bottom: none;
+    }
+    .hero-links a:hover {
+        color: var(--primary);
+        border-bottom: none;
+    }
+
+    /* Link hover preview card (home page only).
+       A single reusable floating card that shows a screenshot of the
+       target page plus its title/description/logo when the user hovers a
+       link marked with data-preview="<url>". Screenshots + metadata come
+       from static/previews/previews.json (built by scripts/fetch-previews.js)
+       so the live site makes no external requests. */
+    .link-preview-card {
+        position: fixed;
+        z-index: 40;                 /* above the home carousel, below the header */
+        width: clamp(220px, 22vw, 300px);
+        background: var(--code-bg);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        overflow: hidden;
+        pointer-events: none;        /* invisible card can't block underlying clicks */
+        opacity: 0;
+        transform: scale(0.96) translateY(6px);
+        transition: opacity 180ms ease-out, transform 180ms ease-out;
+    }
+    .link-preview-card.is-visible {
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;        /* once shown the card is hoverable + clickable */
+        cursor: pointer;
+    }
+    .link-preview-card__screenshot {
+        display: block;
+        width: 100%;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+        object-position: top;        /* show the top of the page, not the footer */
+    }
+    /* Respect users who prefer reduced motion — show/hide without animating. */
+    @media (prefers-reduced-motion: reduce) {
+        .link-preview-card { transition: none; }
+    }
+    /* Hide the card on phone screens (matches the existing mobile cutoff). */
+    @media (max-width: 500px) {
+        .link-preview-card { display: none; }
+    }
+    /* Restore bullet list styling for the "Currently, I..." list.
+       PaperMod's reset.css strips padding from bare ul, and the footer
+       partial injects `li { display: inline-block }` which suppresses
+       list markers entirely. Reset both for lists directly inside
+       .home-info. */
+    .home-info > ul {
+        padding-left: 1.25rem;
+        list-style-type: disc;
+    }
+    .home-info > ul > li {
+        display: list-item;
+    }
+
+    .recent-post-header {
+        display: flex;
+        align-items: baseline;
+    }
+    .recent-post-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex-shrink: 1;
+    }
+    .recent-post-meta {
+        white-space: nowrap;
+        flex-shrink: 0;
+        color: var(--secondary);
+        font-size: 0.85rem;
+        margin-left: 0.3rem;
+    }
+    .recent-post-summary {
+        margin: 0.25rem 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: var(--secondary);
+        font-size: 0.95rem;
+    }
+
+    
 </style>
 
     <article class="first-entry home-info">
-        <header class="entry-header">
-            <div class="header-content">
-                <div class="text-content">
-                    <img class="profile-pic" src="\metadata\Kazi.png" alt="Picture of Kazi Hossain wearing a suit and tie">
-                    <h4>Hello, this is</h4>
-                    <h1>{{ .Title | markdownify }}</h1>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Hi, I'm Kazi.</h1>
+                <div class="hero-list">
+                    <div class="hero-list-item"><span class="hero-action">building</span> software that makes people's life a little easier</div>
+                    <div class="hero-list-item hero-list-item-indent"><span class="hero-action">exploring</span> startups, tech, and atomic habits</div>
+                    <div class="hero-list-item"><span class="hero-action">drawn to</span> big cities, bold ideas and thoughtful writing</div>
                 </div>
+                <ul class="hero-links">
+                    <li><a href="mailto:kazi.h@nyu.edu" id="copy-email">Email</a></li>
+                    <li><a href="https://x.com/0x0kazi" target="_blank">Twitter</a></li>
+                    <li><a href="https://github.com/kazisean" target="_blank">Github</a></li>
+                    <li><a href="/index.xml" target="_blank">RSS</a></li>
+                </ul>
             </div>
-        </header>
-      
-        <div class="entry-content" id="entry-content"></div>
-        
-        <footer class="entry-footer">
-            {{ partial "social_icons.html" (dict "socialIcons" site.Params.socialIcons "align" .Align) }}
-          </footer>
-
-
+            <img class="hero-pic" src="/metadata/Kazi.png" alt="Kazi Hossain">
+        </div>
     </article>
 
     <div class="home-info">
-
-          <!-- other home page  stuff -->
-          <p>I’m a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF">New York University</a>, where I studied CS and other things. 
-            Currently, working on building tools that I would like to use and can see being helpful for others…
-            trying to build <a href="/future/" class="highlight-b">the future.</a></p>
-
-
-        </br>
-
-          <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
-
-        </br>
-
-      <div class = "last-section">
-
-        I like to post about: <br>
-
-          <br>
-          <ul class="side-by-side-list">
-            <li><a href="/tags/diy/" class="highlight-diy">DIY Projects</a></li>
-            <li><a href="/opt/" class="highlight-b">Optimizations</a></li>
-            <li><a href="/ctf/" class="highlight-CTF">CTF write-ups</a></li>
-            <li><a href="/leetcode/" class="highlight-leet">Leetcode editorial</a></li>
-            <li><a href="/tech/" class="highlight-r">Tech</a></li>
+        <p>I'm a recent graduate of <a href="https://cs.nyu.edu/" target="_blank" class="highlight-CTF" data-preview="https://cs.nyu.edu/">New York University</a>, where I studied Computer Science, and a bit of Entrepreneurship and Anthropology. 
+        </p>
+        <br>
+        <p class="hero-action">Recently, I&hellip;</p>
+        <ul>
+          <li>built and launched <a href="https://iideploy.com" target="_blank" rel="noopener" class="highlight-diy" data-preview="https://iideploy.com">iiDeploy</a> solo in 4 weeks automaing OS Deployments</li>
+          <li>built <a href="https://slumbr.me" target="_blank" rel="noopener" class="highlight-b" data-preview="https://slumbr.me">Slumbr</a>, a sleep tracking app designed and shipped to fix my sleep habits.</li>
+          <li>spent a weekend setting up a <span class="squiggly-underline">mini <a href="/posts/homelab/">home datacenter</a></span></li>
         </ul>
-        
-      </div>
-      
+        <br>
+        <p>This is my personal website. Here, you can find most of my musings on tech and ideas that came to me while loafing around.</p>
+        <br>
+        {{- range first 1 (where site.RegularPages "Section" "posts") }}
+        <p class="hero-action">Recent Writing&hellip;</p>
+        <div class="recent-post">
+          <div class="recent-post-header">
+            <a href="{{ .RelPermalink }}" class="recent-post-title">{{ .Title }}</a>
+            <span class="recent-post-meta">· <span id="homepage-view-count" data-path="{{ .RelPermalink }}">— views</span></span>
+          </div>
+          <p class="recent-post-summary">{{ .Params.summary }}</p>
+        </div>
+        {{- end }}
+        <br>
+        <!-- <div class="last-section">
+            I like to post about: <br>
+            <br>
+            <ul class="side-by-side-list">
+                <li><a href="#" class="highlight-b">Startup</a></li>
+                <li><a href="#" class="highlight-CTF">Health</a></li>
+                <li><a href="/topics/diy" class="highlight-r">DIY Projects</a></li>
+                <li><a href="/leetcode" class="highlight-leet">Leetcode editorial</a></li>
+                <li><a href="/topics" class="highlight-diy">More..</a></li>
+            </ul>
+        </div> -->
 
-            
+
+
     </div>
+
+    {{- /* Right-side auto-scrolling image carousel (home page only). */ -}}
+    {{- $imgs := resources.Match "images/homepage_moving/*" -}}
+    <aside class="home-carousel" aria-hidden="true">
+      <div class="home-carousel__track">
+        {{- range $imgs }}
+          {{- if eq .Name "fat32.png" }}
+            <figure><a href="https://github.com/kazisean/FatRec32" target="_blank" rel="noopener noreferrer"><img src="{{ .RelPermalink }}" loading="lazy" alt=""></a></figure>
+          {{- else if eq .Name "no-bg.png" }}
+            <figure><a href="https://github.com/kazisean/no-backdrop" target="_blank" rel="noopener noreferrer"><img src="{{ .RelPermalink }}" loading="lazy" alt=""></a></figure>
+          {{- else }}
+            <figure><img src="{{ .RelPermalink }}" loading="lazy" alt=""></figure>
+          {{- end }}
+        {{- end }}
+      </div>
+    </aside>
+
+    {{- /* Reusable floating card shown when hovering a data-preview link.
+            Populated by the script below from static/previews/previews.json. */ -}}
+    <div class="link-preview-card" aria-hidden="true">
+      <img class="link-preview-card__screenshot" alt="">
+    </div>
+
     <script>
-      // random strings as entry-content
-      const randomStrings = [
-          "Building AI Agents and Robots.",
-          "Machine Learning, Reverse Engineering and Foss enthusiast.",
-          "SWE, DevOps Engineer ~ Chaos Coordinator."
-      ];
-  
-      let currentStringIndex = 0; // Track the current string
-      let currentCharIndex = 0; // Track the current character being typed
-      const typingSpeed = 40; // Speed of typing in milliseconds
-      const pauseDuration = 6000; // Pause duration after typing
-      const entryContent = document.getElementById('entry-content');
-  
-      function typeString(string) {
-          if (currentCharIndex < string.length) {
-              entryContent.innerHTML += string.charAt(currentCharIndex);
-              currentCharIndex++;
-              setTimeout(() => typeString(string), typingSpeed);
-          } else {
-              // Pause for a moment, then start the next string
-              setTimeout(() => {
-                  currentCharIndex = 0; // Reset character index
-                  entryContent.innerHTML = ""; // Clear content
-                  currentStringIndex = (currentStringIndex + 1) % randomStrings.length; // Move to the next string
-                  typeString(randomStrings[currentStringIndex]); // Type the next string
-              }, pauseDuration);
-          }
+    (function () {
+      var track = document.querySelector('.home-carousel__track');
+      if (!track) return;
+      var figures = track.querySelectorAll('figure');
+      var arr = Array.from(figures);
+      /* Fisher‑Yates shuffle: random order every page visit. */
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
       }
-  
-      // type the first string
-      typeString(randomStrings[currentStringIndex]);
-  </script>
-  
-  
-  
+      track.innerHTML = '';
+      arr.forEach(function (f) { track.appendChild(f); });
+      /* Duplicate the shuffled set so translateY(-50 %) loops seamlessly. */
+      arr.forEach(function (f) { track.appendChild(f.cloneNode(true)); });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var emailLink = document.getElementById('copy-email');
+      if (!emailLink) return;
+      emailLink.addEventListener('click', function (e) {
+        e.preventDefault();
+        var email = 'kazi.h@nyu.edu';
+        var copy = function (text) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            return navigator.clipboard.writeText(text);
+          }
+          return new Promise(function (resolve, reject) {
+            var textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+              document.execCommand('copy');
+              resolve();
+            } catch (err) {
+              reject(err);
+            }
+            document.body.removeChild(textarea);
+          });
+        };
+        var originalText = emailLink.textContent;
+        emailLink.textContent = 'Copied!';
+        copy(email).then(function () {}, function () {
+          emailLink.textContent = 'Failed';
+        });
+        setTimeout(function () {
+          if (emailLink.textContent === 'Copied!' || emailLink.textContent === 'Failed') {
+            emailLink.textContent = originalText;
+          }
+        }, 1500);
+      });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var card = document.querySelector('.link-preview-card');
+      if (!card) return;
+
+      var screenshotEl = card.querySelector('.link-preview-card__screenshot');
+
+      var manifest = null;       // contents of static/previews/previews.json
+      var showTimer = null;      // delayed show, so quick mouse-overs don't flicker
+      var hideTimer = null;      // delayed hide, so the pointer can cross the gap onto the card
+      var activeLink = null;     // the link the card is currently previewing (for card click)
+      var SHOW_DELAY_MS = 250;
+      var HIDE_DELAY_MS = 100;   // grace period while the pointer travels from link to card
+
+      /* Fetch the committed preview manifest once. Built by
+         scripts/fetch-previews.js. If it is missing (script not yet run)
+         we leave manifest null and every hover is a silent no-op. */
+      fetch('/previews/previews.json')
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (json) { manifest = json; })
+        .catch(function () { manifest = null; });
+
+      function positionCard(link) {
+        var rect = link.getBoundingClientRect();
+        var gap = 8;
+        var top = rect.top - card.offsetHeight - gap;   /* default: above the link */
+        var left = rect.left;
+        /* Fall back below if there is no room above. */
+        if (top < 8) {
+          top = rect.bottom + gap;
+        }
+        /* Clamp horizontally so the card never overflows the right edge. */
+        if (left + card.offsetWidth > window.innerWidth - 8) {
+          left = window.innerWidth - card.offsetWidth - 8;
+        }
+        if (left < 8) left = 8;
+        if (top < 8) top = 8;
+        card.style.top = top + 'px';
+        card.style.left = left + 'px';
+      }
+
+      function showCard(link) {
+        var url = link.getAttribute('data-preview');
+        if (!manifest || !manifest[url]) return;   /* not in manifest: skip silently */
+        var entry = manifest[url];
+        activeLink = link;
+        positionCard(link);
+        var preloader = new Image();
+        preloader.onload = function () {
+          screenshotEl.src = entry.screenshot;
+          card.classList.add('is-visible');
+        };
+        preloader.onerror = function () {
+          screenshotEl.src = entry.screenshot;
+          card.classList.add('is-visible');
+        };
+        preloader.src = entry.screenshot;
+      }
+
+      function hideCard() {
+        card.classList.remove('is-visible');
+        activeLink = null;
+      }
+
+      function scheduleHide() {
+        clearTimeout(hideTimer);
+        hideTimer = setTimeout(hideCard, HIDE_DELAY_MS);
+      }
+
+      function cancelHide() {
+        clearTimeout(hideTimer);
+      }
+
+      /* Clicking the card opens the same destination as its link, preserving
+         target=_blank so the page opens in a new tab. */
+      card.addEventListener('click', function () {
+        if (activeLink) activeLink.click();
+      });
+
+      /* Hovering the card itself keeps it open (so the user can move the
+         pointer from the link onto the card to read/click it). */
+      card.addEventListener('mouseenter', cancelHide);
+      card.addEventListener('mouseleave', scheduleHide);
+
+      /* Use mouseover/mouseout (they bubble) so we can delegate from document
+         instead of attaching a listener to every data-preview link. */
+      document.addEventListener('mouseover', function (e) {
+        var link = e.target.closest('[data-preview]');
+        if (!link) return;
+        clearTimeout(showTimer);
+        cancelHide();
+        showTimer = setTimeout(function () { showCard(link); }, SHOW_DELAY_MS);
+      });
+
+      document.addEventListener('mouseout', function (e) {
+        var link = e.target.closest('[data-preview]');
+        if (!link) return;
+        /* Only hide when the pointer actually leaves the link, not when it
+           moves between child text nodes inside it. */
+        var stillInside = e.relatedTarget && link.contains(e.relatedTarget);
+        if (stillInside) return;
+        clearTimeout(showTimer);
+        scheduleHide();
+      });
+
+      /* If the page scrolls or resizes while a card is open, repositioning
+         against a stale link rect would misplace it — just hide it. */
+      window.addEventListener('scroll', hideCard, { passive: true });
+      window.addEventListener('resize', hideCard, { passive: true });
+    })();
+    </script>
+
+    <script>
+    (function () {
+      var counter = document.getElementById('homepage-view-count');
+      if (!counter) return;
+      var path = counter.getAttribute('data-path');
+      var url = 'https://kazi.goatcounter.com/counter/' + path + '.json';
+      fetch(url)
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var count = data.count;
+          if (typeof count === 'number' && count > 0) {
+            counter.textContent = count + ' view' + (count !== 1 ? 's' : '');
+          } else if (count === 0) {
+            counter.textContent = '0 views';
+          }
+        })
+        .catch(function () {});
+    })();
+    </script>
 
   {{ end }}
 

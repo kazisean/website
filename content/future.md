@@ -1,6 +1,6 @@
 ---
 title: "The future I want to build"
-Description: "Below is a continues list of things I believe are crucial to build. "
+description: "Below is a continues list of things I believe are crucial to build."
 showToc: false
 hideSummary: true
 ShowReadingTime: false
@@ -9,7 +9,7 @@ ShowRssButtonInSectionTermList: false
 disableShare: true
 ShowBreadCrumbs: false
 hideMeta: true
-searchHidden: true
+
 ---
 
 ![Kazi Hossain sitting in a computer lab anime drawing](/pages/built.png)

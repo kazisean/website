@@ -1,5 +1,6 @@
 ---
 title: "Miscellaneous"
+description: "Kazi Hossain's current setup, projects, and tools"
 showToc: false
 hideSummary: true
 ShowReadingTime: false
@@ -8,7 +9,7 @@ ShowRssButtonInSectionTermList: false
 disableShare: true
 ShowBreadCrumbs: false
 hideMeta: true
-searchHidden: true
+
 ---
 
 ![Anime boy wearing a space suit looking over at a futuristic city](/pages/Anime%20nanotechnology%20boy.jpg)

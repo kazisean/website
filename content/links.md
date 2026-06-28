@@ -9,7 +9,7 @@ ShowRssButtonInSectionTermList: false
 disableShare: true
 ShowBreadCrumbs: false
 hideMeta: true
-searchHidden: true
+
 ---
 
 ![Kazi Hossain sitting in a computer lab anime drawing](/pages/lab_comp.jpg)

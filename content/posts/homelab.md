@@ -1,16 +1,16 @@
 ---
 title: "My mini Homelab"
-summary: "Running a mini homelab and workstation on Linux Mint Cinnamon"
+description: "Kazi Hossain's homelab and workstation running Linux, accessible from anywhere with hassle-free maintenance"
+summary: "Running a mini homelab and workstation on Linux"
 showToc: false
-hideSummary: false
+hideSummary: true
 ShowReadingTime: true
-tags: ["DIY"]
+topics: ["DIY"]
 ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 disableShare: false
 ShowBreadCrumbs: true
 hideMeta: false
-searchHidden: true
 ---
 ![Kazi Hossain fastfetch showcase](/img/stat.png)
 
