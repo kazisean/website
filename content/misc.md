@@ -1,5 +1,6 @@
 ---
 title: "Miscellaneous"
+description: "Kazi Hossain's current setup, projects, and tools"
 showToc: false
 hideSummary: true
 ShowReadingTime: false

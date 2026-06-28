@@ -1,5 +1,6 @@
 ---
 title: "Projects"
+description: "Kazi Hossain's projects — iiDeploy, Slumbr, FatRec32, noBackDrop"
 showToc: false
 hideSummary: true
 ShowReadingTime: false

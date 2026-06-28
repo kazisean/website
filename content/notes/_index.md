@@ -3,6 +3,7 @@ title = 'Notes'
 draft = true
 ShowToc = true
 TocOpen = true
+description = "Kazi Hossain's notes on various topics"
 +++
 
 

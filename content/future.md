@@ -1,6 +1,6 @@
 ---
 title: "The future I want to build"
-Description: "Below is a continues list of things I believe are crucial to build. "
+description: "Below is a continues list of things I believe are crucial to build."
 showToc: false
 hideSummary: true
 ShowReadingTime: false

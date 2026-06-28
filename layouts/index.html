@@ -1,8 +1,5 @@
 
 {{ define "main" }}
-<meta property="og:type" content="website" />
-<meta name='subject' content="aa"/>
-
   {{- with site.Params.homeInfoParams }}
 
   <style>
@@ -511,10 +508,18 @@
         var url = link.getAttribute('data-preview');
         if (!manifest || !manifest[url]) return;   /* not in manifest: skip silently */
         var entry = manifest[url];
-        screenshotEl.src = entry.screenshot;
         activeLink = link;
         positionCard(link);
-        card.classList.add('is-visible');
+        var preloader = new Image();
+        preloader.onload = function () {
+          screenshotEl.src = entry.screenshot;
+          card.classList.add('is-visible');
+        };
+        preloader.onerror = function () {
+          screenshotEl.src = entry.screenshot;
+          card.classList.add('is-visible');
+        };
+        preloader.src = entry.screenshot;
       }
 
       function hideCard() {

@@ -60,6 +60,9 @@ async function fetchPreviewFromMicrolink(url) {
   const apiUrl = new URL(MICROLINK_ENDPOINT);
   apiUrl.searchParams.set('url', url);
   apiUrl.searchParams.set('screenshot', 'true');
+  apiUrl.searchParams.set('waitUntil', 'networkidle0');
+  apiUrl.searchParams.set('waitForTimeout', '5000');
+  apiUrl.searchParams.set('timeout', '30s');
 
   const response = await fetch(apiUrl);
   if (!response.ok) {

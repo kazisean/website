@@ -1,5 +1,6 @@
 ---
 title: "Copyright & Tech Stack"
+description: "How this website is built — Hugo, PaperMod theme, GitHub Pages — and license details"
 showToc: false
 hideSummary: true
 ShowReadingTime: false

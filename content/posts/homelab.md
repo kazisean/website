@@ -1,8 +1,9 @@
 ---
 title: "My mini Homelab"
+description: "Kazi Hossain's homelab and workstation running Linux, accessible from anywhere with hassle-free maintenance"
 summary: "Running a mini homelab and workstation on Linux"
 showToc: false
-hideSummary: false
+hideSummary: true
 ShowReadingTime: true
 topics: ["DIY"]
 ShowWordCount: true

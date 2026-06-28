@@ -28,8 +28,25 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Journey through a maze of Kazi Hossain’s musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
+  description: "Journey through a maze of Kazi Hossain's musings about Computer Science at NYU, Machine Learning, Reverse Engineering, DIY projects, optimizations, CTF write-ups, Leetcode editorials, and various other topics."
   author: Kazi Hossain
+  keywords:
+    - "Kazi Hossain"
+    - "Computer Science"
+    - "Machine Learning"
+    - "Reverse Engineering"
+    - "DIY"
+    - "CTF"
+    - "Leetcode"
+    - "NYU"
+    - "Software Engineering"
+    - "Homelab"
+    - "Optimization"
+  schema:
+    publisherType: "Person"
+    sameAs:
+      - "https://github.com/kazisean"
+      - "https://x.com/0x0kazi"
   # author: ["Me", "You"] # multiple authors
 
 
@@ -68,6 +85,9 @@ params:
     Title: "Kazi Hossain"
     Content: Machine Learning, Reverse Engineering and Foss enthusiast.
     
+
+  social:
+    twitter: "0x0kazi"
 
   socialIcons:
     - name: Email
