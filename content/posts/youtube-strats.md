@@ -1,6 +1,6 @@
 +++
-title = '{{ replace .File.ContentBaseName "-" " " | title }}'
-date = {{ .Date }}
+title = 'Youtube Strats'
+date = 2026-06-29T13:57:28-04:00
 draft = true
 description = ''
 summary = ''
@@ -15,3 +15,6 @@ ShowBreadCrumbs = true
 hideMeta = false
 keywords = []
 +++
+
+
+
