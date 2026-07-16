@@ -1,5 +1,5 @@
 +++
-title = 'Poor Mans Tech Stack'
+title = 'Poor Mans Startup Stack'
 date = 2026-07-16T17:26:37-04:00
 draft = true
 description = ''
