@@ -164,9 +164,9 @@
         background: var(--code-bg);
     }
 
-    .dark.list .header.nav-open #menu {
-        background: var(--theme);
-    }
+.dark.list .header.nav-open #menu {
+    background: var(--theme);
+}
 
     .header.nav-open #menu li {
         width: 100%;
@@ -184,5 +184,20 @@
     .logo a,
     #menu a span {
         padding: 4px 8px;
+    }
+}
+
+/* Wider content area for blog posts. */
+:root {
+    --main-width: 1000px;
+}
+
+.post-title {
+    font-size: 28px;
+}
+
+@media (max-width: 768px) {
+    .post-title {
+        font-size: 24px;
     }
 }

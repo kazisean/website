@@ -46,19 +46,16 @@ This server build was initially not designed to function as a server. When I fir
 • [NextCloud](https://nextcloud.com/) : Open Source google drive alternative \
 • [Portainer](https://www.portainer.io/) : Better container management \
 • [Pi-hole](https://pi-hole.net/) : I hate ADS \
-• [Tailscale](https://tailscale.com/) : Homelab exit node vpn for my phone and uni laptop \ 
+• [Tailscale](https://tailscale.com/) : Homelab exit node vpn for my phone and uni laptop \
 • [UpTime Kuma](https://uptimekuma.co/) : Fancy simple server uptime + monitoring \
-• [JellyFin](https://jellyfin.org/) : Self-hosted media server \ 
+• [JellyFin](https://jellyfin.org/) : Self-hosted media server \
 • [Dispatcharr](https://github.com/dispatcharr/dispatcharr) : Personal 4k live tv management system \
 • [Home Assistant](https://www.home-assistant.io/) : Smart home stuff 
 
 
 ### $0 tech stack for side projects
-• [SigNoz](https://signoz.io/) : Data dog alternative running with cloudflare tunnel \ 
-• [Umami](https://umami.is/) : Web analytics with cloudflare tunnel \ 
-• [Twenty](https://twenty.com/) : Local CRM \
+• [SigNoz](https://signoz.io/) : Data dog alternative running with cloudflare tunnel \
+• [Umami](https://umami.is/) : Web analytics with cloudflare tunnel \
+• [Twenty](https://twenty.com/) : Local CRM
 
 In the future I would love to set up more tools as I discover them. But for now this is all. 
-
-
-Thanks.
