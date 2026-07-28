@@ -65,13 +65,17 @@
         flex-direction: column;
         align-items: stretch;
         margin: 0;
+        /* Undo PaperMod's .first-entry min-height: 320px so the hero box
+           hugs its content instead of vertically centering it with dead
+           space above and below. */
+        min-height: 0;
     }
 
     .hero {
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
-        gap: clamp(1rem, 3vw, 2.5rem);
+        justify-content: flex-start;
+        gap: 2rem;
     }
 
     .hero-text h1 {
@@ -111,18 +115,42 @@
         flex-shrink: 0;
     }
 
+    /* Tablet: keep side-by-side but tighter */
+    @media (max-width: 768px) {
+        .hero {
+            gap: 1.25rem;
+        }
+        .hero-text h1 {
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 1rem;
+        }
+        .hero-pic {
+            width: clamp(80px, 20vw, 120px);
+            height: clamp(80px, 20vw, 120px);
+        }
+        .hero-list {
+            font-size: clamp(0.8rem, 1.4vw, 0.95rem);
+            gap: 0.35rem;
+        }
+        .hero-list-item-indent {
+            margin-left: 1.5rem;
+        }
+    }
+
+    /* Mobile: stack vertically, image above text */
     @media (max-width: 500px) {
         .hero {
             flex-direction: column-reverse;
             align-items: flex-start;
+            gap: 0.75rem;
         }
         .hero-pic {
-            width: clamp(80px, 30vw, 120px);
-            height: clamp(80px, 30vw, 120px);
-            margin-bottom: 1rem;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 0.5rem;
         }
         .hero-text h1 {
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
         .hero-list-item-indent {
             margin-left: 1rem;
@@ -145,14 +173,13 @@
 }
 
     /* Vertical "moving logos" carousel: a continuous strip of images
-       scrolling upward, flush to the right edge of the browser window.
-       Home-only (this layout is only used on the home page) and hidden on
-       narrow screens where it would overlap the content column. */
+       scrolling upward, positioned immediately to the right of the content
+       column. Home-only and hidden on narrow screens where it would overflow. */
     .home-carousel {
         position: fixed;              /* anchored to the viewport, not the content column */
         top: 0;
         bottom: 70px;                 /* leave room for the footer links on the right */
-        right: 0;                      /* flush to the browser's right edge */
+        left: calc(50vw + var(--main-width) / 2 + var(--gap) * 2); /* flush against the right edge of the content column */
         width: 200px;
         overflow: hidden;             /* clips the scrolling track; enables the fade masks */
         z-index: 1;                   /* stays below the header (z-index: 50) */
@@ -212,9 +239,11 @@
         .home-carousel__track { animation: none; }
     }
 
-    /* Hide when the right margin can't comfortably fit the strip without
-       covering the content column. */
-    @media (max-width: 1200px) {
+    /* Hide the carousel when the viewport is too narrow for the strip to
+       fit alongside the content column with a 24px gap. At exactly 1496px
+       viewport width, the strip's right edge touches the viewport right
+       edge; below that it would overflow, so we hide it. */
+    @media (max-width: 1496px) {
         .home-carousel { display: none; }
     }
 
@@ -291,6 +320,10 @@
     }
     .home-info > ul > li {
         display: list-item;
+    }
+
+    .home-info > p {
+        max-width: 75ch;
     }
 
     .recent-post-header {
